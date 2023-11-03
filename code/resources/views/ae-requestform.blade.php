@@ -2,33 +2,34 @@
 
 @section('content')
 
-<div class="modal fade" id="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Add Book Category</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Recipient:</label>
+              <input type="text" class="form-control" id="recipient-name">
             </div>
-            <div class="modal-body">
-                <form>
-                    <input type="hidden" id="hid" name="hid">
-                    <div class="row">
-                        <div class="form-group col-md-12">
-                            <label for="rate">Book Category Name</label>
-                            <input type="text" class="form-control" id="book_type" name="book_type" placeholder="Enter Category Name" required>
-                        </div>
-                    </div>
-                </form>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="message-text"></textarea>
             </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-success submit" id="submit">Save changes</button>
-          </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Send message</button>
+        </div>
       </div>
     </div>
-</div>
+  </div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
@@ -83,7 +84,7 @@ $(document).ready(function(){
         }
     });
 
-    show_Books();
+    // show_Books();
 
     $(document).on("blur",".form-control",function(){
         $("#submit").css("display","block");
@@ -91,7 +92,7 @@ $(document).ready(function(){
 
     $(".addNew").click(function(){
         empty_form();
-        $("#modal").modal('show');
+        $("#exampleModal").modal('show');
         $(".modal-title").html('Save Book');
         $("#submit").html('Save Book');
         $("#submit").click(function(){
