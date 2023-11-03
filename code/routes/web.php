@@ -23,7 +23,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard',[AdminLoginController::class,'dashboard'])->name('admin.dashboard')->middleware('admin');
     Route::post('/logout',[AdminLoginController::class,'adminlogout'])->name('admin.logout')->middleware('admin');
 
-    Route::get('/ae-requestform',[AERequestController::class,'index'])->name('AE');
+    Route::get('/ae-requestform',[AERequestController::class,'index'])->name('AE')->middleware('admin');
 
 });
 
@@ -39,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/ae-requestform',[AERequestController::class,'index'])->name('AE');
 });
 
 require __DIR__.'/auth.php';

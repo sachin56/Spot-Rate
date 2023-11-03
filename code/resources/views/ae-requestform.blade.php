@@ -2,71 +2,49 @@
 
 @section('content')
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Recipient:</label>
-              <input type="text" class="form-control" id="recipient-name">
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Horizontal Form</h4>
+        <p class="card-description"> Horizontal form layout </p>
+        <form class="forms-sample">
+          <div class="form-group row">
+            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Username">
             </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Message:</label>
-              <textarea class="form-control" id="message-text"></textarea>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Send message</button>
-        </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Mobile</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="exampleInputMobile" placeholder="Mobile number">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+            <div class="col-sm-9">
+              <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Re Password</label>
+            <div class="col-sm-9">
+              <input type="password" class="form-control" id="exampleInputConfirmPassword2" placeholder="Password">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary me-2">Submit</button>
+        </form>
       </div>
     </div>
   </div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Master</a></li>
-              <li class="breadcrumb-item active">Book</li>
-            </ol>
-          </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                    <div class="card-header">
-                        <button class="btn btn-primary addNew"><i class="fa fa-plus"></i> Add New Book</button>
-                    </div>
-                <div class="card-body">
-                    <table class="table table-bordered" id="tbl_book">
-                        <thead>
-                            <tr>
-                                <th style="width:5%">ID</th>
-                                <th style="width:20%">Book Name</th>
-                                <th style="width:20%">Book Auther Name</th>
-                                <th style="width:10%">Book Category</th>
-                                <th style="width:5%">Book Stock</th>
-                                <th style="width:20%">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <script>
 $(document).ready(function(){
 
@@ -389,16 +367,7 @@ function show_Books(){
                 data: null,
                 render: function(d){
                     var html = "";
-                    @if (Auth::guard('admin')->check())
-                        html+="<td><button class='btn btn-warning btn-sm edit' data='"+d.id+"' title='Edit'><i class='fas fa-edit'></i></button>";
-                        html+="&nbsp;<button class='btn btn-danger btn-sm delete' data='"+d.id+"' title='Delete'><i class='fas fa-trash'></i></button>";
-                        html+="&nbsp;<td><button class='btn btn-primary btn-sm assign_book' data='"+d.id+"' title='Edit'><i class='fa fa-user'></i></button>";
-                    @elseif(Auth::guard('reader')->check())
-                        html+="<td><button class='btn btn-success btn-sm read' data='"+d.id+"' title='Edit'><i class='fa-solid fa-book'></i></button>";
-                    @else
-                        html+="<td><button class='btn btn-warning btn-sm edit' data='"+d.id+"' title='Edit'><i class='fas fa-edit'></i></button>";
-                        html+="&nbsp;<td><button class='btn btn-primary btn-sm assign_book' data='"+d.id+"' title='Edit'><i class='fa fa-user'></i></button>";
-                    @endif
+                    
                     return html;
 
                 }

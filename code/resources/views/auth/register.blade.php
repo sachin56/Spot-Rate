@@ -31,79 +31,49 @@
                 </div>
                 <h4>New here?</h4>
                 <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
-                <form class="pt-3" method="POST" action="{{ route('register') }}">
-                    <div class="input-group mb-3">
-                        <input type="text"
-                               name="name"
-                               class="form-control form-control-lg form-control-lg @error('name') is-invalid @enderror"
-                               value="{{ old('name') }}"
-                               placeholder="Full name">
-                        <div class="input-group-append">
-                            <div class="input-group-text"><span class="fas fa-user"></span></div>
-                        </div>
-                        @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                <form class="pt-3" method="post" action="{{ route('register') }}">
+                    @csrf
+                  <div class="form-group">
+                    <input type="text"  class="form-control form-control-lg @error('name') is-invalid @enderror" id="name" name="name" placeholder="Username" value="{{ old('name') }}">
+                  </div>
+                  @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+
+                  <div class="form-group">
+                    <input type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email" value="{{ old('email') }}">
+                  </div>
+                  @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+
+                  <div class="form-group">
+                    <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password">
+                  </div>
+                  @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                
+                  <div class="form-group">
+                    <input type="password" class="form-control form-control-lg" id="password_confirmation" name="password_confirmation" placeholder="Retype Password">
+                  </div>
+                  <div class="mb-4">
+                    <div class="form-check">
+                      <label class="form-check-label text-muted">
+                        <input type="checkbox" class="form-check-input"> I agree to all Terms & Conditions </label>
                     </div>
-    
-                    <div class="input-group mb-3">
-                        <input type="email"
-                               name="email"
-                               value="{{ old('email') }}"
-                               class="form-control form-control-lg @error('email') is-invalid @enderror"
-                               placeholder="Email">
-                        <div class="input-group-append">
-                            <div class="input-group-text"><span class="fas fa-envelope"></span></div>
-                        </div>
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-    
-                    <div class="input-group mb-3">
-                        <input type="password"
-                               name="password"
-                               class="form-control form-control-lg @error('password') is-invalid @enderror"
-                               placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text"><span class="fas fa-lock"></span></div>
-                        </div>
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-    
-                    <div class="input-group mb-3">
-                        <input type="password"
-                               name="password_confirmation"
-                               class="form-control form-control-lg"
-                               placeholder="Retype password">
-                        <div class="input-group-append">
-                            <div class="input-group-text"><span class="fas fa-lock"></span></div>
-                        </div>
-                    </div>
-    
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                                <label for="agreeTerms">
-                                    I agree to the <a href="#">terms</a>
-                                </label>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block submit">Register</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
+                  </div>
+                  <div class="mt-3">
+                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn submit">SIGN UP</button>
+                  </div>
+                  <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="login.html" class="text-primary">Login</a>
+                  </div>
                 </form>
               </div>
             </div>
