@@ -23,7 +23,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard',[AdminLoginController::class,'dashboard'])->name('admin.dashboard')->middleware('admin');
     Route::post('/logout',[AdminLoginController::class,'adminlogout'])->name('admin.logout')->middleware('admin');
 
-    Route::get('/ae-requestform',[AERequestController::class,'index'])->name('AE')->middleware('admin');
+    Route::get('/ae-requestform',[AERequestController::class,'index'])->name('AEAdmin')->middleware('admin');
+    Route::post('/ae-requestform/store',[AERequestController::class,'store']);
 
 });
 

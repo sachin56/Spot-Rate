@@ -34,21 +34,21 @@
                 <form class="pt-3" method="POST" action="{{ route('login') }}">
                   @csrf
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username" id="email">
+                    <input type="email" class="form-control form-control-lg" placeholder="Username" id="email" name="email">
                   </div>
                   @error('email')
                   <span class="error invalid-feedback">{{ $message }}</span>
                   @enderror
                   
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" id="password">
+                    <input type="password" class="form-control form-control-lg" placeholder="Password" id="password" name="password">
                   </div>
                   @error('password')
                   <span class="error invalid-feedback">{{ $message }}</span>
                   @enderror
 
                   <div class="mt-3">
-                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn submit" >SIGN IN</button>>
+                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn submit">SIGN IN</button>
                   </div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
