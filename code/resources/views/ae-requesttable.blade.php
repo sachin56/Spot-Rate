@@ -2,41 +2,43 @@
 
 @section('content')
 
-<div class="modal fade" id="modal" data-backdrop="false" style="overflow: auto !important">
+<div class="modal fade " id="modal" data-backdrop="false" style="overflow: auto !important">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-white">
                 <h4 class="modal-title">Add Credit Note</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body bg-white">
                 <form  id="myForm" enctype="multipart/form-data">
                     <input type="hidden" id="hid" name="hid">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>ICPC No</label>
                                 <input type="text" class="form-control" name="icpc_no" id="icpc_no"
                                     placeholder="Enter ICPC No">
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Mount Code</label>
                                 <input type="text" class="form-control" name="mount_code" id="mount_code"
                                     placeholder="Enter Mount Code">
                             </div>
                         </div>
-                        <div class="col-md-3">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Weight</label>
                                 <input type="text" class="form-control" name="weight" id="weight"
                                     placeholder="Enter Weight">
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Company Name</label>
                                 <input type="text" class="form-control" name="company_name" id="company_name" placeholder="Enter Company Name">
@@ -45,40 +47,41 @@
                     </div>
                     <!-- /.row -->
                     <div class="row">
-                      <div class="col-md-3">
+                      <div class="col-md-6">
                           <div class="form-group">
                               <label>Desination Of Package</label>
                               <input type="text" class="form-control" name="destination" id="destination"
                                   placeholder="Enter Desination Of Package">
                           </div>
                       </div>
-                      <div class="col-md-3">
+                      <div class="col-md-6">
                           <div class="form-group">
                               <label>Requested Rate</label>
                               <input type="text" class="form-control" name="ae_rate" id="ae_rate"
                                   placeholder="Enter Requested Rate">
                           </div>
                       </div>
-                      <div class="col-md-3">
-                          <div class="form-group">
-                              <label>Service</label>
-                              <input type="text" class="form-control" name="service" id="service"
-                                  placeholder="Enter Service">
-                          </div>
-                      </div>
                   </div>
                   <div class="row">
-                      <div class="col-md-12">
-                          <div class="form-group">
-                              <label>AE Comment</label>
-                              <textarea type="text" class="form-control" name="ae_comment" id="ae_comment" placeholder="Enter Comment"></textarea>
-                          </div>
-                      </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Service</label>
+                            <input type="text" class="form-control" name="service" id="service"
+                                placeholder="Enter Service">
+                        </div>
+                    </div>
                   </div>
-
+                  <div class="row">
+                  <div class="col-md-12">
+                        <div class="form-group">
+                            <label>AE Comment</label>
+                            <textarea type="text" class="form-control" name="ae_comment" id="ae_comment" placeholder="Enter Comment"></textarea>
+                        </div>
+                    </div>
+                  </div>
                 </form>
             </div>
-          <div class="modal-footer">
+          <div class="modal-footer bg-white">
             <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
             <button type="button" class="btn btn-outline-success submit" id="submit">Save changes</button>
           </div>
@@ -107,7 +110,7 @@
                     <button type="buttton" class="btn btn-primary addNew"><i class="fa fa-plus"></i> Add New Employee</button>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered" id="datatable">
+                    <table class="table table-striped" id="datatable">
                         <thead>
                             <tr>
                                 <th>ICPC No</th>
@@ -150,8 +153,8 @@
             $("#hid").val(id);
             
             $("#modal").modal('show');
-            $(".modal-title").html('Add Credit Note');
-            $("#submit").html('Add Credit Note');
+            $(".modal-title").html('Add Request Form');
+            $("#submit").html('Add Request Form');
             // description_app ();
             $.ajax({
                 'type': 'ajax',

@@ -6,7 +6,6 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Rate Request Form</h4>
-        <p class="card-description"> Request Form </p>
         <form  id="myForm" enctype="multipart/form-data">
           <input type="hidden" id="hid" name="hid">
           <div class="form-group row">
@@ -58,8 +57,8 @@
             </div>
           </div>
         </form>
-        <div style="padding:right">
-          <button type="button" class="btn btn-success submit" id="submit">Save changes</button>
+        <div align="right">
+          <button type="button" class="btn btn-primary submit" id="submit">Save changes</button>
         </div>
       </div>
     </div>
@@ -93,35 +92,46 @@ $(document).ready(function(){
                 var ae_rate =$("#ae_rate").val();
                 var service =$("#service").val();
                 var ae_comment =$("#ae_comment").val();
+            Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Update it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        'type': 'ajax',
+                        'dataType': 'json',
+                        'method': 'post',
+                        'data' : {icpc_no:icpc_no,mount_code:mount_code,weight:weight,company_name:company_name,destination:destination,ae_rate:ae_rate,service:service,ae_comment:ae_comment},
+                        'url' : 'ae-requestform/store',
+                        'async': false,
+                        success:function(data){
+                            if(data.validation_error){
+                            validation_error(data.validation_error);//if has validation error call this function
+                            }
 
-              $.ajax({
-                'type': 'ajax',
-                'dataType': 'json',
-                'method': 'post',
-                'data' : {icpc_no:icpc_no,mount_code:mount_code,weight:weight,company_name:company_name,destination:destination,ae_rate:ae_rate,service:service,ae_comment:ae_comment},
-                'url' : 'ae-requestform/store',
-                'async': false,
-                success:function(data){
-                    if(data.validation_error){
-                      validation_error(data.validation_error);//if has validation error call this function
-                    }
+                            if(data.db_error){
+                            db_error(data.db_error);
+                            }
 
-                    if(data.db_error){
-                      db_error(data.db_error);
-                    }
+                            if(data.db_success){
+                            toastr.success(data.db_success);
+                            setTimeout(function(){
+                                location.reload();
+                            }, 2000);
+                            }
 
-                    if(data.db_success){
-                      db_success(data.db_success);
-                      setTimeout(function(){
-                        location.reload();
-                    }, 2000);
-                    }
-
-                },
-                error: function(jqXHR, exception) {
-                    db_error(jqXHR.responseText);
+                        },
+                        error: function(jqXHR, exception) {
+                            db_error(jqXHR.responseText);
+                        }
+                    });
                 }
-              });
+            });
         };
     });
 
