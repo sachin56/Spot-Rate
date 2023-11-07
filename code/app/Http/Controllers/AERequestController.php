@@ -7,7 +7,7 @@ use App\Models\AERequestForm;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Yajra\DataTables\Contracts\DataTable;
+use DataTables;
 
 class AERequestController extends Controller
 {
@@ -18,11 +18,11 @@ class AERequestController extends Controller
     public function create(){
         $result = AERequestForm::all();
 
-        return DataTable($result)->make(true);
+        return DataTables($result)->make(true);
     }
 
     public function store(Request $request){
-     dd($request);
+
         $validator = Validator::make($request->all(), [
             'company_name' => 'required',
             'weight' => 'required',
@@ -44,7 +44,11 @@ class AERequestController extends Controller
                 $type->ae_rate = $request->ae_rate;
                 $type->service = $request->service;
                 $type->ae_comment = $request->ae_comment;
-                $type->ae_comment = Auth::user()->id;
+                if (Auth::guard('admin')->check()){
+                    $type->ae_comment = Auth::guard('admin')->user()->id;
+                }else{
+                    $type->ae_comment = Auth::user()->id;
+                }
 
                 $type->save();
 
@@ -58,5 +62,10 @@ class AERequestController extends Controller
             }
 
         }
+    }
+    public function show($id){
+        $result = AERequestForm::find($id);
+
+        return response()->json($result);
     }
 }

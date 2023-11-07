@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AERequestController;
 use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\AERequestTableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,11 @@ Route::prefix('admin')->group(function () {
     Route::post('/logout',[AdminLoginController::class,'adminlogout'])->name('admin.logout')->middleware('admin');
 
     Route::get('/ae-requestform',[AERequestController::class,'index'])->name('AEAdmin')->middleware('admin');
+    Route::get('/ae-requestform/create',[AERequestController::class,'create']);
     Route::post('/ae-requestform/store',[AERequestController::class,'store']);
+    Route::get('/ae-requestform/{id}',[AERequestController::class,'show']);
+
+    Route::get('/requesttable',[AERequestTableController::class,'index'])->name('AETable');
 
 });
 

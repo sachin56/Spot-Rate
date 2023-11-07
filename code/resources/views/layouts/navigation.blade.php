@@ -17,8 +17,7 @@
         <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ route('AEAdmin') }}">Request Form</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">Request Form Table</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">Typography</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('AETable') }}">Request Form Table</a></li>
             </ul>
         </div>
         </li>

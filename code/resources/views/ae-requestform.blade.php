@@ -64,7 +64,6 @@
       </div>
     </div>
   </div>
-
 <script>
 $(document).ready(function(){
   
@@ -75,9 +74,13 @@ $(document).ready(function(){
         }
     });
 
+    show_request_rate();
+
     // show_Books();
     $(document).on("click",".submit",function(){
-          console.log('hi');
+        console.log('hi');
+          var icpc_no =$("#icpc_no").val();
+          console.log(icpc_no);
           empty_form();
           var hid = $("#hid").val();
           //save Category
@@ -100,16 +103,16 @@ $(document).ready(function(){
                 'async': false,
                 success:function(data){
                     if(data.validation_error){
-                    validation_error(data.validation_error);//if has validation error call this function
+                      validation_error(data.validation_error);//if has validation error call this function
                     }
 
                     if(data.db_error){
-                    db_error(data.db_error);
+                      db_error(data.db_error);
                     }
 
                     if(data.db_success){
-                    db_success(data.db_success);
-                    setTimeout(function(){
+                      db_success(data.db_success);
+                      setTimeout(function(){
                         location.reload();
                     }, 2000);
                     }
@@ -120,9 +123,46 @@ $(document).ready(function(){
                 }
               });
         };
-      });
+    });
 
 });
+
+    function show_request_rate(){
+
+        $('#datatable').DataTable().clear();
+        $('#datatable').DataTable().destroy();
+
+        $("#datatable").DataTable({
+            'processing': true,
+            'serverSide': true,
+            "bLengthChange": false,
+            "autoWidth": false,
+            "recordsFiltered": 28,
+            'ajax': {
+                        'method': 'get',
+                        'url': 'ae-requestform/create',
+                    },
+            'columns': [
+                {data: "icpc_no"},
+                {data: "mount_code"},
+                {data: "company_name"},
+                {data: "weight"},
+                {data: "destination"},
+                {data: "ae_rate"},
+                {
+                    data: null,
+                    render: function(d){
+                        var html = "";
+                        html+="&nbsp;<button class='btn btn-danger btn-sm delete' data='"+d.id+"'title='Delete'><i class='fas fa-trash'></i></button>";
+                        html+="&nbsp;<a class='btn btn-success btn-sm' href='{{ url('credit_note_attachment/download/') }}/"+d.id+"'  'title='File Download'><i class='fas fa-download'></i></a>";
+                        return html;
+
+                    }
+
+                }
+            ]
+        });
+    }
 
 function empty_form(){
     $("#hid").val("");
