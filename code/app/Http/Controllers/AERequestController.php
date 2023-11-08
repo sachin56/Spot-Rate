@@ -58,7 +58,7 @@ class AERequestController extends Controller
                 }else{
                     $type->ae_comment = Auth::user()->id;
                 }
-
+                $type->staus = '0';
                 $type->save();
 
                 DB::commit();

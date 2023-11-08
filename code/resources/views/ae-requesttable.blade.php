@@ -521,7 +521,7 @@
                     render: function(d){
                         var html = "";
                         html+="&nbsp;&nbsp;<td><button class='btn btn-primary btn-sm edit' data='"+d.id+"' title='Edit'><i class='fas fa-arrow-alt-circle-left'></i></i></button>";
-                        if(d.staus != null){
+                        if(d.staus == 1){
                             html+="&nbsp;&nbsp;<td><button class='btn btn-success btn-sm ae' data='"+d.id+"' title='Edit'><i class='mdi mdi-apple-keyboard-command'></i></i></button>";
                         }
                         html+="&nbsp;<button class='btn btn-danger btn-sm delete' data='"+d.id+"'title='Delete'><i class='fas fa-trash'></i></button>";

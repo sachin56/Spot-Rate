@@ -16,7 +16,7 @@ class PricingRateController extends Controller
 
     public function create(){
         $result= DB::table('a_e_request_forms')
-                ->where('a_e_request_forms.staus',1)
+                ->where('a_e_request_forms.staus',0)
                 ->select('a_e_request_forms.*')
                 ->get();
 
@@ -39,7 +39,7 @@ class PricingRateController extends Controller
                 $type = AERequestForm::find($request->id);
                 $type->rate_offer = $request->offer_rate;
                 $type->pricing_comment = $request->pricing_comment;
-                $type->staus = '0';
+                $type->staus = '1';
                 $type->pricing_status = $request->status;
 
                 $type->save();
