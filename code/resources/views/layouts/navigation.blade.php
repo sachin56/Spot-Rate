@@ -22,23 +22,23 @@
         </div>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="../../pages/icons/mdi.html">
+        <a class="nav-link" href="{{ route('pricing') }}">
             <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
-            <span class="menu-title">Icons</span>
+            <span class="menu-title">Pricing</span>
         </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
         <a class="nav-link" href="../../pages/forms/basic_elements.html">
             <span class="icon-bg"><i class="mdi mdi-format-list-bulleted menu-icon"></i></span>
             <span class="menu-title">Forms</span>
         </a>
-        </li>
-        <li class="nav-item">
+        </li> --}}
+        {{-- <li class="nav-item">
         <a class="nav-link" href="../../pages/charts/chartjs.html">
             <span class="icon-bg"><i class="mdi mdi-chart-bar menu-icon"></i></span>
             <span class="menu-title">Charts</span>
         </a>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
@@ -65,7 +65,7 @@
                     <img src="../../assets/images/faces/face28.png" alt="image">
                 </div>
                 <div class="sidebar-profile-text">
-                    <p class="mb-1">Henry Klein</p>
+                    <p class="mb-1">{{Auth::guard('admin')->user()->name}}</p>
                 </div>
                 </div>
             </div>

@@ -21,9 +21,10 @@ return new class extends Migration
             $table->string('ae_rate')->nullable();
             $table->integer('service')->nullable();
             $table->longText('ae_comment')->nullable();
+            $table->integer('ae_status')->nullable();
             $table->string('rate_offer')->nullable();
             $table->longText('pricing_comment')->nullable();
-            $table->integer('ae_status')->nullable();
+            $table->integer('pricing_status')->nullable();
             $table->integer('billing_status')->nullable();
             $table->integer('staus')->nullable();
             $table->integer('assign_ae')->nullable();
