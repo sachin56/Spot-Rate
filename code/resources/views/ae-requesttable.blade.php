@@ -19,14 +19,14 @@
                             <div class="form-group">
                                 <label>ICPC No</label>
                                 <input type="text" class="form-control" name="icpc_no" id="icpc_no"
-                                    placeholder="Enter ICPC No" readonly>
+                                    placeholder="Enter ICPC No">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Mount Code</label>
                                 <input type="text" class="form-control" name="mount_code" id="mount_code"
-                                    placeholder="Enter Mount Code" readonly>
+                                    placeholder="Enter Mount Code">
                             </div>
                         </div>
                     </div>
@@ -35,13 +35,13 @@
                             <div class="form-group">
                                 <label>Weight</label>
                                 <input type="text" class="form-control" name="weight" id="weight"
-                                    placeholder="Enter Weight" readonly>
+                                    placeholder="Enter Weight">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Company Name</label>
-                                <input type="text" class="form-control" name="company_name" id="company_name" placeholder="Enter Company Name" readonly>
+                                <input type="text" class="form-control" name="company_name" id="company_name" placeholder="Enter Company Name">
                             </div>
                         </div>
                     </div>
@@ -51,14 +51,14 @@
                           <div class="form-group">
                               <label>Desination Of Package</label>
                               <input type="text" class="form-control" name="destination" id="destination"
-                                  placeholder="Enter Desination Of Package" readonly>
+                                  placeholder="Enter Desination Of Package">
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="form-group">
                               <label>Requested Rate</label>
                               <input type="text" class="form-control" name="ae_rate" id="ae_rate"
-                                  placeholder="Enter Requested Rate" readonly>
+                                  placeholder="Enter Requested Rate">
                           </div>
                       </div>
                   </div>
@@ -67,7 +67,7 @@
                         <div class="form-group">
                             <label>Service</label>
                             <input type="text" class="form-control" name="service" id="service"
-                                placeholder="Enter Service" readonly>
+                                placeholder="Enter Service">
                         </div>
                     </div>
                   </div>
@@ -75,7 +75,7 @@
                   <div class="col-md-12">
                         <div class="form-group">
                             <label>AE Comment</label>
-                            <textarea type="text" class="form-control" name="ae_comment" id="ae_comment" placeholder="Enter Comment" readonly></textarea>
+                            <textarea type="text" class="form-control" name="ae_comment" id="ae_comment" placeholder="Enter Comment"></textarea>
                         </div>
                     </div>
                   </div>
@@ -316,7 +316,7 @@
 
         //complain edit
     $(document).on("click", ".edit", function(){
-        console.log('====================================');
+        $("#submit").css("display","none");
         var id = $(this).attr('data');
 
         empty_form();
