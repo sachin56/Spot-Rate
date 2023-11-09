@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BillingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AERequestController;
 use App\Http\Controllers\AdminLoginController;
@@ -30,6 +31,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/ae-requestform/store',[AERequestController::class,'store']);
     Route::get('/ae-requestform/{id}',[AERequestController::class,'show']);
     Route::put('/ae-requestform/{id}',[AERequestController::class,'update']);
+    Route::put('/ae-requestform/status/{id}',[AERequestController::class,'ae_change_status']);
 
     Route::get('/requesttable',[AERequestTableController::class,'index'])->name('AETable');
 
@@ -37,6 +39,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/pricing-form/create',[PricingRateController::class,'create']);
     Route::post('/pricing-form',[PricingRateController::class,'store']);
 
+    Route::get('/billing-form',[BillingController::class,'index'])->name('billing');
+    Route::get('/billing-form/create',[BillingController::class,'create']);
 });
 
 Route::get('/', function () {

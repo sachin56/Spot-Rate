@@ -72,6 +72,13 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label>AWB</label>
+                            <input type="text" class="form-control" name="awb" id="awb"
+                                placeholder="Enter Service" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
                             <label>AE Comment</label>
                             <textarea type="text" class="form-control" name="ae_comment" id="ae_comment" placeholder="Enter Comment" readonly></textarea>
                         </div>
@@ -85,13 +92,13 @@
                         <div class="form-group">
                             <label>Rate Offer</label>
                             <input type="text" class="form-control" name="offer_rate" id="offer_rate"
-                                placeholder="Enter Offer Rate">
+                                placeholder="Enter Offer Rate" readonly>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Pricing Comment</label>
-                            <textarea type="text" class="form-control" name="pricing_comment" id="pricing_comment" placeholder="Enter Comment" ></textarea>
+                            <textarea type="text" class="form-control" name="pricing_comment" id="pricing_comment" placeholder="Enter Comment" readonly></textarea>
                         </div>
                     </div>
                   </div>
@@ -114,7 +121,7 @@
         <div class="col-md-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Main</a></li>
-              <li class="breadcrumb-item active"> Pricing</li>
+              <li class="breadcrumb-item active">Biiling</li>
             </ol>
           </div>
     </div>
@@ -169,7 +176,7 @@
             
             $("#modal").modal('show');
             $(".modal-title").html('Update Request Form');
-            $("#submit").html('Approve');
+            $("#submit").html('Confirm');
             $("#submitreject").html('Reject');
             // description_app ();
             $.ajax({
@@ -188,6 +195,9 @@
                     $("#ae_rate").val(data.ae_rate);
                     $("#service").val(data.service);
                     $("#ae_comment").html(data.ae_comment);
+                    $("#awb").val(data.awb);
+                    $("#offer_rate").val(data.rate_offer);
+                    $("#pricing_comment").html(data.pricing_comment);
                 }
             });
             //user button click submit data to controller
@@ -308,7 +318,7 @@
             "recordsFiltered": 28,
             'ajax': {
                         'method': 'get',
-                        'url': 'pricing-form/create',
+                        'url': 'billing-form/create',
                     },
             'columns': [
                 {data: "icpc_no"},

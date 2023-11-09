@@ -27,12 +27,12 @@
             <span class="menu-title">Pricing</span>
         </a>
         </li>
-        {{-- <li class="nav-item">
-        <a class="nav-link" href="../../pages/forms/basic_elements.html">
+        <li class="nav-item">
+        <a class="nav-link" href="{{ route('billing') }}">
             <span class="icon-bg"><i class="mdi mdi-format-list-bulleted menu-icon"></i></span>
-            <span class="menu-title">Forms</span>
+            <span class="menu-title">Billing</span>
         </a>
-        </li> --}}
+        </li>
         {{-- <li class="nav-item">
         <a class="nav-link" href="../../pages/charts/chartjs.html">
             <span class="icon-bg"><i class="mdi mdi-chart-bar menu-icon"></i></span>

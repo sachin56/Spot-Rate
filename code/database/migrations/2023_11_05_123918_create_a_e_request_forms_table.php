@@ -28,6 +28,7 @@ return new class extends Migration
             $table->integer('billing_status')->nullable();
             $table->integer('staus')->nullable();
             $table->integer('assign_ae')->nullable();
+            $table->string('awb')->nullable();
             $table->timestamps();
         });
     }

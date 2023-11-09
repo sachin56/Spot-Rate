@@ -208,8 +208,8 @@
         </div>
         <div class="col-md-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Master</a></li>
-              <li class="breadcrumb-item active">Credit Note</li>
+              <li class="breadcrumb-item"><a href="#">Main</a></li>
+              <li class="breadcrumb-item active">Request Form</li>
             </ol>
           </div>
     </div>
@@ -435,19 +435,12 @@
             }
         });
         //user button click submit data to controller
-        $("#submit").click(function(){
+        $("#submit_ae").click(function(){
 
             if($("#hid").val() != ""){
                 var id =$("#hid").val();
-                console.log(id);
-                var icpc_no =$("#icpc_no").val();
-                var mount_code =$("#mount_code").val();
-                var weight =$("#weight").val();
-                var company_name =$("#company_name").val();
-                var destination =$("#destination").val();
-                var ae_rate =$("#ae_rate").val();
-                var service =$("#service").val();
-                var ae_comment =$("#ae_comment").val();
+                var awb =$("#awb").val();
+                var status ='0';
 
                 Swal.fire({
                         title: 'Are you sure?',
@@ -464,8 +457,55 @@
                                 'type': 'ajax',
                                 'dataType': 'json',
                                 'method': 'put',
-                                'data' : {icpc_no:icpc_no,mount_code:mount_code,weight:weight,company_name:company_name,destination:destination,ae_rate:ae_rate,service:service,ae_comment:ae_comment},
-                                'url': 'ae-requestform/'+id,
+                                'data' : {awb:awb,status:status},
+                                'url': 'ae-requestform/status/'+id,
+                                'async': false,
+                                success:function(data){
+                                if(data.validation_error){
+                                    validation_error(data.validation_error);//if has validation error call this function
+                                    }
+
+                                    if(data.db_error){
+                                    db_error(data.db_error);
+                                    }
+
+                                    if(data.db_success){
+                                    toastr.success(data.db_success);
+                                    setTimeout(function(){
+                                        $("#modal").modal('hide');
+                                        location.reload();
+                                    }, 2000);
+                                    }
+                                },
+                            });
+                        }
+                    });
+            }
+        });
+        $("#submit_reject").click(function(){
+
+            if($("#hid").val() != ""){
+                var id =$("#hid").val();
+                var awb =$("#awb").val();
+                var status ='1';
+
+                Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, Update it!'
+                        }).then((result) => {
+                        if (result.isConfirmed) {
+                            
+                            $.ajax({
+                                'type': 'ajax',
+                                'dataType': 'json',
+                                'method': 'put',
+                                'data' : {awb:awb,status:status},
+                                'url': 'ae-requestform/status/'+id,
                                 'async': false,
                                 success:function(data){
                                 if(data.validation_error){
@@ -491,7 +531,7 @@
         });
     });
 
-    });
+});
 
     //Data Table show
     function show_request_rate(){

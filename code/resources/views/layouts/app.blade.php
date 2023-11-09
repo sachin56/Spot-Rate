@@ -90,7 +90,7 @@
             </form>
           </div>
           <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item  dropdown d-none d-md-block">
+            {{-- <li class="nav-item  dropdown d-none d-md-block">
               <a class="nav-link dropdown-toggle" id="reportDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Reports </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="reportDropdown">
                 <a class="dropdown-item" href="#">
@@ -102,8 +102,8 @@
                 <a class="dropdown-item" href="#">
                   <i class="mdi mdi-file-word me-2"></i>doc </a>
               </div>
-            </li>
-            <li class="nav-item  dropdown d-none d-md-block">
+            </li> --}}
+            {{-- <li class="nav-item  dropdown d-none d-md-block">
               <a class="nav-link dropdown-toggle" id="projectDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Projects </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="projectDropdown">
                 <a class="dropdown-item" href="#">
@@ -112,8 +112,8 @@
                 <a class="dropdown-item" href="#">
                   <i class="mdi mdi-pencil-outline me-2"></i>Edit Project </a>
               </div>
-            </li>
-            <li class="nav-item nav-language dropdown d-none d-md-block">
+            </li> --}}
+            {{-- <li class="nav-item nav-language dropdown d-none d-md-block">
               <a class="nav-link dropdown-toggle" id="languageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="nav-language-icon">
                   <i class="flag-icon flag-icon-us" title="us" id="us"></i>
@@ -141,7 +141,7 @@
                   </div>
                 </a>
               </div>
-            </li>
+            </li> --}}
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
@@ -298,8 +298,8 @@
           <footer class="footer">
             <div class="footer-inner-wraper">
               <div class="d-sm-flex justify-content-center justify-content-sm-between py-2">
-                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="https://www.bootstrapdash.com/" target="_blank">bootstrapdash.com </a>2021</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Only the best <a href="https://www.bootstrapdash.com/" target="_blank"> Bootstrap dashboard </a> templates</span>
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="" target="_blank">ADVEX </a>{{date("Y")}}</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Version <a href="" target="_blank"> 0.0.1 </a></span>
               </div>
             </div>
           </footer>

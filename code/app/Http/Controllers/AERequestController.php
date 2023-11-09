@@ -17,12 +17,9 @@ class AERequestController extends Controller
     }
 
     public function create(){
-        $result = AERequestForm::all();
-
-        return DataTables($result)->make(true);
 
         $result= DB::table('a_e_request_forms')
-                ->where('a_e_request_forms.staus','!=',3)
+                ->where('a_e_request_forms.staus','!=',2)
                 ->select('a_e_request_forms.*')
                 ->get();
 
@@ -111,6 +108,38 @@ class AERequestController extends Controller
                     $type->ae_comment = Auth::user()->id;
                 }
                 $type->staus = '1';
+
+                $type->save();
+
+                DB::commit();
+                return response()->json(['db_success' => 'Added New Rate']);
+
+            }catch(\Throwable $th){
+                DB::rollback();
+                throw $th;
+                return response()->json(['db_error' =>'Database Error'.$th]);
+            }
+
+        }
+    }
+
+    //basically this doing submit to data in billing
+    public function ae_change_status(Request $request){
+        $validator = Validator::make($request->all(), [
+            'awb' => 'required',
+            'status' => 'required',
+        ]);
+
+        if($validator->fails()){
+            return response()->json(['validation_error' => $validator->errors()->all()]);
+        }else{
+            try{
+                DB::beginTransaction();
+
+                $type = AERequestForm::find($request->id);
+                $type->awb = $request->awb;
+                $type->ae_status = $request->status;
+                $type->staus = '2';
 
                 $type->save();
 
