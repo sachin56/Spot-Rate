@@ -146,6 +146,7 @@ class AERequestController extends Controller
                 $type->mount_code = $request->mount_code;
                 $type->icpc_no = $request->icpc_no;
                 $type->ae_status = $request->status;
+                $type->fixed_rate = $request->fixed_rate;
                 $type->staus = '2';
 
                 $type->save();

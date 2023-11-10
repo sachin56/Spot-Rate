@@ -197,7 +197,8 @@
             });
             //user button click submit data to controller
             $("#submit").click(function(){
-
+                $(".submit").prepend('<i class="fa fa-spinner fa-spin"></i>');
+                $(".submit").attr("disabled", "disabled");
                 if($("#hid").val() != ""){
                     var id =$("#hid").val();
                     console.log(id);
@@ -246,7 +247,8 @@
                 }
             });
             $("#submitreject").click(function(){
-
+                $(".submitreject").prepend('<i class="fa fa-spinner fa-spin"></i>');
+                $(".submitreject").attr("disabled", "disabled");
             if($("#hid").val() != ""){
                 var id =$("#hid").val();
                 console.log(id);

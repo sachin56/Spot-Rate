@@ -202,14 +202,14 @@
                         <div class="form-group">
                             <label>AWB</label>
                             <input type="text" class="form-control" name="awb" id="awb"
-                                placeholder="Enter Service">
+                                placeholder="Enter AWB">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Fixed Rate</label>
-                            <input type="text" class="form-control" name="awb" id="awb"
-                                placeholder="Enter Service">
+                            <input type="text" class="form-control" name="fixed_rate" id="fixed_rate"
+                                placeholder="Enter Fixed Rate">
                         </div>
                     </div>
                   </div>
@@ -282,7 +282,10 @@
         $(".modal-title").html('Add Request Form');
         $("#submit").html('Add Request Form');
         $('#modal').modal({backdrop:'static', keyboard: false})
-        $("#submit").click(function(){    
+        $("#submit").click(function(){  
+
+        $(".submit").prepend('<i class="fa fa-spinner fa-spin"></i>');
+        $(".submit").attr("disabled", "disabled"); 
         var hid = $("#hid").val();
         //save Category
         if(hid == ""){
@@ -294,6 +297,8 @@
                 var ae_rate =$("#ae_rate").val();
                 var service =$("#service").val();
                 var ae_comment =$("#ae_comment").val();
+
+
                 Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -370,7 +375,8 @@
         });
         //user button click submit data to controller
         $("#submit").click(function(){
-
+            $(".submit").prepend('<i class="fa fa-spinner fa-spin"></i>');
+            $(".submit").attr("disabled", "disabled");
             if($("#hid").val() != ""){
                 var id =$("#hid").val();
 
@@ -458,12 +464,14 @@
         });
         //user button click submit data to controller
         $("#submit_ae").click(function(){
-
+        $(".submit_ae").prepend('<i class="fa fa-spinner fa-spin"></i>');
+        $(".submit_ae").attr("disabled", "disabled");
             if($("#hid").val() != ""){
                 var id =$("#hid").val();
                 var awb =$("#awb").val();
                 var icpc_no =$("#icpc_no").val();
                 var mount_code =$("#mount_code").val();
+                var fixed_rate =$("#fixed_rate").val();
                 var status ='0';
 
                 Swal.fire({
@@ -481,7 +489,7 @@
                                 'type': 'ajax',
                                 'dataType': 'json',
                                 'method': 'put',
-                                'data' : {awb:awb,status:status,icpc_no:icpc_no,mount_code:mount_code},
+                                'data' : {awb:awb,status:status,icpc_no:icpc_no,mount_code:mount_code,fixed_rate:fixed_rate},
                                 'url': 'ae-requestform/status/'+id,
                                 'async': false,
                                 success:function(data){
@@ -507,7 +515,8 @@
             }
         });
         $("#submit_reject").click(function(){
-
+            $(".submit_reject").prepend('<i class="fa fa-spinner fa-spin"></i>');
+            $(".submit_reject").attr("disabled", "disabled");
             if($("#hid").val() != ""){
                 var id =$("#hid").val();
                 var awb =$("#awb").val();

@@ -43,10 +43,15 @@
         <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
             <span class="icon-bg"><i class="mdi mdi-lock menu-icon"></i></span>
-            <span class="menu-title">User Pages</span>
+            <span class="menu-title">User Manage</span>
             <i class="menu-arrow"></i>
         </a>
-
+        <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('user') }}">Users</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('role') }}">Roles</a></li>
+            </ul>
+        </div>   
         </li>
         <li class="nav-item documentation-link">
         <a class="nav-link" href="" target="_blank">

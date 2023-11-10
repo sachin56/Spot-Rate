@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UUserController;
+use App\Http\Controllers\URolesController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AERequestController;
@@ -41,6 +43,22 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/billing-form',[BillingController::class,'index'])->name('billing')->middleware('admin');
     Route::get('/billing-form/create',[BillingController::class,'create'])->middleware('admin');
+
+
+    Route::get('/role',[URolesController::class,'index'])->name('role')->middleware('admin');
+    Route::post('/role', [URolesController::class,'store']);
+    Route::get('/role/create', [URolesController::class,'create']);
+    Route::get('/role/{id}', [URolesController::class,'show']);
+    Route::put('/role/{id}', [URolesController::class,'update']);
+    Route::delete('/role/{id}', [URolesController::class,'destroy']);
+
+    //user_managment->user
+    Route::get('/user', [UUserController::class,'index'])->name('user')->middleware('admin');
+    Route::post('/user', [UUserController::class,'store']);
+    Route::get('/user/create', [UUserController::class,'create']);
+    Route::get('/user/{id}', [UUserController::class,'show']);
+    Route::put('/user/{id}', [UUserController::class,'update']);
+    Route::delete('/user/{id}', [UUserController::class,'destroy']);
 });
 
 Route::get('/', function () {
@@ -71,6 +89,21 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/billing-form',[BillingController::class,'index']);
     Route::get('/billing-form/create',[BillingController::class,'create']);
+
+    Route::get('/role',[URolesController::class,'index']);
+    Route::post('/role', [URolesController::class,'store']);
+    Route::get('/role/create', [URolesController::class,'create']);
+    Route::get('/role/{id}', [URolesController::class,'show']);
+    Route::put('/role/{id}', [URolesController::class,'update']);
+    Route::delete('/role/{id}', [URolesController::class,'destroy']);
+
+    //user_managment->user
+    Route::get('/user', [UUserController::class,'index']);
+    Route::post('/user', [UUserController::class,'store']);
+    Route::get('/user/create', [UUserController::class,'create']);
+    Route::get('/user/{id}', [UUserController::class,'show']);
+    Route::put('/user/{id}', [UUserController::class,'update']);
+    Route::delete('/user/{id}', [UUserController::class,'destroy']);
 });
 
 require __DIR__.'/auth.php';
