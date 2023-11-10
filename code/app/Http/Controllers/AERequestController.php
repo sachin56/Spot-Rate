@@ -53,9 +53,9 @@ class AERequestController extends Controller
                 $type->service = $request->service;
                 $type->ae_comment = $request->ae_comment;
                 if (Auth::guard('admin')->check()){
-                    $type->ae_comment = Auth::guard('admin')->user()->id;
+                    $type->assign_ae = Auth::guard('admin')->user()->id;
                 }else{
-                    $type->ae_comment = Auth::user()->id;
+                    $type->assign_ae = Auth::user()->id;
                 }
                 $type->staus = '0';
                 $type->save();
@@ -130,6 +130,8 @@ class AERequestController extends Controller
     public function ae_change_status(Request $request){
         $validator = Validator::make($request->all(), [
             'awb' => 'required',
+            'mount_code' => 'required',
+            'icpc_no' => 'required',
             'status' => 'required',
         ]);
 
@@ -141,6 +143,8 @@ class AERequestController extends Controller
 
                 $type = AERequestForm::find($request->id);
                 $type->awb = $request->awb;
+                $type->mount_code = $request->mount_code;
+                $type->icpc_no = $request->icpc_no;
                 $type->ae_status = $request->status;
                 $type->staus = '2';
 

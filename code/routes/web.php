@@ -63,13 +63,13 @@ Route::middleware('auth')->group(function () {
     Route::put('/ae-requestform/{id}',[AERequestController::class,'update']);
     Route::put('/ae-requestform/status/{id}',[AERequestController::class,'ae_change_status']);
 
-    Route::get('/requesttable',[AERequestTableController::class,'index'])->name('AETable');
+    Route::get('/requesttable',[AERequestTableController::class,'index']);
 
-    Route::get('/pricing-form',[PricingRateController::class,'index'])->name('pricing');
+    Route::get('/pricing-form',[PricingRateController::class,'index']);
     Route::get('/pricing-form/create',[PricingRateController::class,'create']);
     Route::post('/pricing-form',[PricingRateController::class,'store']);
 
-    Route::get('/billing-form',[BillingController::class,'index'])->name('billing');
+    Route::get('/billing-form',[BillingController::class,'index']);
     Route::get('/billing-form/create',[BillingController::class,'create']);
 });
 

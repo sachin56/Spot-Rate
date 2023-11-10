@@ -48,7 +48,7 @@
           <div class="form-group row">
             <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Service</label>
             <div class="col-sm-9">
-              <select class="form-control" id="exampleSelectGender">
+              <select class="form-control" id="service">
                 <option value="0">Select Service</option>
                 <option value="1">Inbount / IP</option>
                 <option value="2">Inbount / IPF</option>
@@ -60,7 +60,7 @@
           <div class="form-group row">
             <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Comment</label>
             <div class="col-sm-9">
-              <textarea type="text" class="form-control" id="ae_comment" placeholder="Description"></textarea>
+              <textarea type="text" class="form-control" id="ae_comment" name="ae_comment" placeholder="Description"></textarea>
             </div>
           </div>
         </form>
@@ -95,6 +95,7 @@ $(document).ready(function(){
               var ae_rate =$("#ae_rate").val();
               var service =$("#service").val();
               var ae_comment =$("#ae_comment").val();
+
               Swal.fire({
               title: 'Are you sure?',
               text: "You won't be able to revert this!",

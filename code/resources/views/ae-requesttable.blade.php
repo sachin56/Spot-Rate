@@ -66,8 +66,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Service</label>
-                            <input type="text" class="form-control" name="service" id="service"
-                                placeholder="Enter Service">
+                            <select class="form-control" id="service">
+                                <option value="0">Select Service</option>
+                                <option value="1">Inbount / IP</option>
+                                <option value="2">Inbount / IPF</option>
+                                <option value="3">Outbound / IP</option>
+                                <option value="4">Outbound / IPF</option>
+                            </select>
                         </div>
                     </div>
                   </div>
@@ -153,12 +158,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Service</label>
-                            <select name="cars" id="cars">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="mercedes">Mercedes</option>
-                                <option value="audi">Audi</option>
-                              </select>
+                            <select class="form-control" id="service_ae" readonly>
+                                <option value="0">Select Service</option>
+                                <option value="1">Inbount / IP</option>
+                                <option value="2">Inbount / IPF</option>
+                                <option value="3">Outbound / IP</option>
+                                <option value="4">Outbound / IPF</option>
+                            </select>
                         </div>
                     </div>
                   </div>
@@ -275,6 +281,7 @@
         $("#modal").modal('show');
         $(".modal-title").html('Add Request Form');
         $("#submit").html('Add Request Form');
+        $('#modal').modal({backdrop:'static', keyboard: false})
         $("#submit").click(function(){    
         var hid = $("#hid").val();
         //save Category
@@ -351,7 +358,6 @@
             'url': 'ae-requestform/'+id,
             'async': false,
             success: function(data){
-                console.log(data);
                 $("#icpc_no").val(data.icpc_no);
                 $("#mount_code").val(data.mount_code);
                 $("#weight").val(data.weight);
@@ -367,7 +373,7 @@
 
             if($("#hid").val() != ""){
                 var id =$("#hid").val();
-                console.log(id);
+
                 var icpc_no =$("#icpc_no").val();
                 var mount_code =$("#mount_code").val();
                 var weight =$("#weight").val();
@@ -456,6 +462,8 @@
             if($("#hid").val() != ""){
                 var id =$("#hid").val();
                 var awb =$("#awb").val();
+                var icpc_no =$("#icpc_no").val();
+                var mount_code =$("#mount_code").val();
                 var status ='0';
 
                 Swal.fire({
@@ -473,7 +481,7 @@
                                 'type': 'ajax',
                                 'dataType': 'json',
                                 'method': 'put',
-                                'data' : {awb:awb,status:status},
+                                'data' : {awb:awb,status:status,icpc_no:icpc_no,mount_code:mount_code},
                                 'url': 'ae-requestform/status/'+id,
                                 'async': false,
                                 success:function(data){
