@@ -65,7 +65,13 @@
                     <img src="../../assets/images/faces/face28.png" alt="image">
                 </div>
                 <div class="sidebar-profile-text">
-                    <p class="mb-1">{{Auth::guard('admin')->user()->name}}</p>
+                    <p class="mb-1">
+                        @if (Auth::guard('admin')->check())
+                        {{Auth::guard('admin')->user()->name}}
+                      @else
+                        {{Auth::user()->name}}
+                      @endif
+                    </p>
                 </div>
                 </div>
             </div>

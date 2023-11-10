@@ -136,9 +136,9 @@
                     <div class="row">
                       <div class="col-md-6">
                           <div class="form-group">
-                              <label>Desination Of Package</label>
+                              <label>Country</label>
                               <input type="text" class="form-control" name="destination_ae" id="destination_ae"
-                                  placeholder="Enter Desination Of Package" readonly>
+                                  placeholder="Enter Country" readonly>
                           </div>
                       </div>
                       <div class="col-md-6">
@@ -153,15 +153,12 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Service</label>
-                            <input type="text" class="form-control" name="service_ae" id="service_ae"
-                                placeholder="Enter Service" readonly>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>AWB</label>
-                            <input type="text" class="form-control" name="awb" id="awb"
-                                placeholder="Enter Service">
+                            <select name="cars" id="cars">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option>
+                              </select>
                         </div>
                     </div>
                   </div>
@@ -174,7 +171,7 @@
                     </div>
                   </div>
                   <hr>
-                  <h3 align="center">Pricing</h3>
+                  <h3 align="left">Pricing</h3>
                   <br>
                   <div class="row">
                     <div class="col-md-12">
@@ -187,6 +184,26 @@
                         <div class="form-group">
                             <label>Pricing Comment</label>
                             <textarea type="text" class="form-control" name="pricing_comment" id="pricing_comment" placeholder="Enter Comment" readonly></textarea>
+                        </div>
+                    </div>
+                    <div id="pricing_status"></div>
+                  </div>
+                  <hr>
+                  <h3 align="left">Finel Process</h3>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>AWB</label>
+                            <input type="text" class="form-control" name="awb" id="awb"
+                                placeholder="Enter Service">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Fixed Rate</label>
+                            <input type="text" class="form-control" name="awb" id="awb"
+                                placeholder="Enter Service">
                         </div>
                     </div>
                   </div>
@@ -318,7 +335,7 @@
     $(document).on("click", ".edit", function(){
         $("#submit").css("display","none");
         var id = $(this).attr('data');
-
+        pricing_status(id);
         empty_form();
         
         $("#hid").val(id);
@@ -404,7 +421,7 @@
 
     $(document).on("click", ".ae", function(){
         var id = $(this).attr('data');
-
+        pricing_status(id);
         empty_form();
         
         $("#hid").val(id);
@@ -421,7 +438,6 @@
             'url': 'ae-requestform/'+id,
             'async': false,
             success: function(data){
-                console.log(data);
                 $("#icpc_no_ae").val(data.icpc_no);
                 $("#mount_code_ae").val(data.mount_code);
                 $("#weight_ae").val(data.weight);
@@ -572,6 +588,31 @@
                 }
             ]
         });
+    }
+
+    function pricing_status(id){
+        var html = "";
+        $.ajax({
+            'type': 'ajax',
+            'dataType': 'json',
+            'method': 'get',
+            'url': 'ae-requestform/'+id,
+            'async': false,
+            success: function(data){
+                html +='<div class="row" align="right">'
+                if(data.pricing_status == 0){
+                     html+='<div class="text-right">';
+                        html+='<i class="fa fa-check" style="color:green">Approved</i>&nbsp;&nbsp;';
+                    html+='</div>';  
+                }else{
+                    html+='<div class="text-right">';
+                        html+='<i class="fa fa-window-close" style="color:red">&nbsp;Reject</i>&nbsp;&nbsp;'; 
+                    html+='</div>';  
+                }
+                html+='</div>';
+                $("#pricing_status").append(html);
+            }
+        });  
     }
 
         function empty_form(){

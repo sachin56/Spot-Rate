@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use DataTables;
+use App\Mail\PricingMail;
 use Illuminate\Http\Request;
 use App\Models\AERequestForm;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use DataTables;
 
 class AERequestController extends Controller
 {
@@ -58,15 +60,16 @@ class AERequestController extends Controller
                 $type->staus = '0';
                 $type->save();
 
+                // Mail::to($request->email)->send(new PricingMail(Auth::guard('admin')->user()->name,$type->company_name,$type->weight,$type->destination));
+                
                 DB::commit();
                 return response()->json(['db_success' => 'Added New Rate']);
 
             }catch(\Throwable $th){
                 DB::rollback();
                 throw $th;
-                return response()->json(['db_error' =>'Database Error'.$th]);
+                return response()->json(['db_error' =>'Database Error'.$th]); 
             }
-
         }
     }
     public function show($id){
@@ -112,7 +115,7 @@ class AERequestController extends Controller
                 $type->save();
 
                 DB::commit();
-                return response()->json(['db_success' => 'Added New Rate']);
+                return response()->json(['db_success' => 'Update Rate']);
 
             }catch(\Throwable $th){
                 DB::rollback();

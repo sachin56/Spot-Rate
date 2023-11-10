@@ -27,20 +27,20 @@ Route::prefix('admin')->group(function () {
     Route::post('/logout',[AdminLoginController::class,'adminlogout'])->name('admin.logout')->middleware('admin');
 
     Route::get('/ae-requestform',[AERequestController::class,'index'])->name('AEAdmin')->middleware('admin');
-    Route::get('/ae-requestform/create',[AERequestController::class,'create']);
-    Route::post('/ae-requestform/store',[AERequestController::class,'store']);
-    Route::get('/ae-requestform/{id}',[AERequestController::class,'show']);
-    Route::put('/ae-requestform/{id}',[AERequestController::class,'update']);
+    Route::get('/ae-requestform/create',[AERequestController::class,'create'])->middleware('admin');
+    Route::post('/ae-requestform/store',[AERequestController::class,'store'])->middleware('admin');
+    Route::get('/ae-requestform/{id}',[AERequestController::class,'show'])->middleware('admin');
+    Route::put('/ae-requestform/{id}',[AERequestController::class,'update'])->middleware('admin');
     Route::put('/ae-requestform/status/{id}',[AERequestController::class,'ae_change_status']);
 
-    Route::get('/requesttable',[AERequestTableController::class,'index'])->name('AETable');
+    Route::get('/requesttable',[AERequestTableController::class,'index'])->name('AETable')->middleware('admin');
 
-    Route::get('/pricing-form',[PricingRateController::class,'index'])->name('pricing');
-    Route::get('/pricing-form/create',[PricingRateController::class,'create']);
-    Route::post('/pricing-form',[PricingRateController::class,'store']);
+    Route::get('/pricing-form',[PricingRateController::class,'index'])->name('pricing')->middleware('admin');
+    Route::get('/pricing-form/create',[PricingRateController::class,'create'])->middleware('admin');
+    Route::post('/pricing-form',[PricingRateController::class,'store'])->middleware('admin');
 
-    Route::get('/billing-form',[BillingController::class,'index'])->name('billing');
-    Route::get('/billing-form/create',[BillingController::class,'create']);
+    Route::get('/billing-form',[BillingController::class,'index'])->name('billing')->middleware('admin');
+    Route::get('/billing-form/create',[BillingController::class,'create'])->middleware('admin');
 });
 
 Route::get('/', function () {
@@ -56,7 +56,21 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/ae-requestform',[AERequestController::class,'index'])->name('AE');
+    Route::get('/ae-requestform',[AERequestController::class,'index'])->name('request_rate');
+    Route::get('/ae-requestform/create',[AERequestController::class,'create']);
+    Route::post('/ae-requestform/store',[AERequestController::class,'store']);
+    Route::get('/ae-requestform/{id}',[AERequestController::class,'show']);
+    Route::put('/ae-requestform/{id}',[AERequestController::class,'update']);
+    Route::put('/ae-requestform/status/{id}',[AERequestController::class,'ae_change_status']);
+
+    Route::get('/requesttable',[AERequestTableController::class,'index'])->name('AETable');
+
+    Route::get('/pricing-form',[PricingRateController::class,'index'])->name('pricing');
+    Route::get('/pricing-form/create',[PricingRateController::class,'create']);
+    Route::post('/pricing-form',[PricingRateController::class,'store']);
+
+    Route::get('/billing-form',[BillingController::class,'index'])->name('billing');
+    Route::get('/billing-form/create',[BillingController::class,'create']);
 });
 
 require __DIR__.'/auth.php';
