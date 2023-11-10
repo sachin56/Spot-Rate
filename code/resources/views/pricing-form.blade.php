@@ -66,8 +66,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Service</label>
-                            <input type="text" class="form-control" name="service" id="service"
-                                placeholder="Enter Service" readonly>
+                            <select class="form-control" id="service" readonly>
+                                <option value="0">Select Service</option>
+                                <option value="1">Inbount / IP</option>
+                                <option value="2">Inbount / IPF</option>
+                                <option value="3">Outbound / IP</option>
+                                <option value="4">Outbound / IPF</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6">
