@@ -29,6 +29,7 @@ return new class extends Migration
             $table->integer('staus')->nullable();
             $table->integer('assign_ae')->nullable();
             $table->string('awb')->nullable();
+            $table->string('fixed_rate')->nullable();
             $table->timestamps();
         });
     }
