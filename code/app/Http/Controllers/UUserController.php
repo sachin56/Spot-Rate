@@ -35,7 +35,52 @@ class UUserController extends Controller
         return response()->json($result);
 
     }
+    public function store(Request $request){
 
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password'=>'required',
+        ]);
+
+        if($validator->fails()){
+            return response()->json(['validation_error' => $validator->errors()->all()]);
+        }else{
+            try{
+                DB::beginTransaction();
+
+                $user =new User;
+                $user->name = $request->name;
+                $user->email = $request->email;
+                $user->password = Hash::make($request->password);
+
+                $user->save();
+               
+                $roles =$request->role_id;
+                $users = $user->id;
+
+                foreach( $roles as $role){
+
+                    $user_role = new U_user_role;
+                    $user_role->user_id = $users;
+                    $user_role->role_id = $role;
+
+                    $user_role->save();
+
+                }
+
+                DB::commit();
+                return response()->json(['db_success' => 'User Updated']);
+
+            }catch(\Throwable $th){
+                DB::rollback();
+                throw $th;
+                return response()->json(['db_error' =>'Database Error'.$th]);
+            }
+
+        }
+
+    }
     public function update(Request $request){
 
         $validator = Validator::make($request->all(), [

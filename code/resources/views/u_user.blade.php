@@ -3,35 +3,41 @@
 @section('content')
 
     <div class="modal fade" id="modal">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-white">
             <h4 class="modal-title">Add User</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body bg-white" >
                 <form>
                 <input type="hidden" id="hid" name="hid">
                 <div class="row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-12">
                     <label for="name">Username</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Username" required readonly>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Username" required>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-md-8">
+                    <div class="form-group col-md-12">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required readonly>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                    <label for="email">Password</label>
+                    <input type="email" class="form-control" id="password" name="password" placeholder="Enter Email" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12">
                     <label for="tele_no">User Role</label><br>
-                    <select name="role_id" id="role_id" required class="form-control" multiple="multiple">
+                    <select name="role_id" id="role_id" required class="form-control col-md-12" multiple="multiple">
                         @foreach($roles as $role)
-                        <option value="{{ $role->id }}">{{ $role->description }}</option>
+                            <option value="{{ $role->id }}">{{ $role->description }}</option>
                         @endforeach
                     </select>
                     </div>
@@ -39,9 +45,9 @@
 
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success submit" id="submit">Save changes</button>
+            <div class="modal-footer bg-white">
+                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-success submit" id="submit">Save changes</button>
             </div>
         </div>
         </div>
@@ -49,12 +55,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <h1 class="m-0 text-dark">User</h1>
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">User Managment</a></li>
-                <li class="breadcrumb-item active">User</a></li>
+                <li class="breadcrumb-item">User Managment</li>
+                <li class="breadcrumb-item active"><a href="#">User</a></li>
                 </ol>
             </div>
         </div>
@@ -63,6 +68,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card-header" align="right">
+                        <button type="buttton" class="btn btn-outline-primary addNew"><i class="fa fa-plus"></i> Add New User</button>
+                    </div>
                     <div class="card-body">
                         <table class="table table-bordered" id="tbl_role">
                             <thead>
@@ -124,6 +132,66 @@
 
         $(document).on("blur",".form-control",function(){
             $("#submit").css("display","block");
+        });
+
+        $(document).on("click", ".addNew", function(){
+            var id = $(this).attr('data');
+
+            empty_form();
+            $("#hid").val(id);
+            $("#modal").modal('show');
+            $(".modal-title").html('Add User');
+            $("#submit").html('Add User');
+
+            $("#submit").click(function(){
+
+                if($("#hid").val() == ""){
+                    var id = $("#hid").val();
+                    var name =$("#name").val();
+                    var email =$("#email").val();
+                    var password =$("#password").val();
+                    var role_id =$("#role_id").val()
+
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, Update it!'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+
+                                $.ajax({
+                                    'type': 'ajax',
+                                    'dataType': 'json',
+                                    'method': 'post',
+                                    'data' : {name:name,email:email,role_id:role_id,password:password},
+                                    'url': 'user',
+                                    'async': false,
+                                    success:function(data){
+                                    if(data.validation_error){
+                                        validation_error(data.validation_error);//if has validation error call this function
+                                        }
+
+                                        if(data.db_error){
+                                        db_error(data.db_error);
+                                        }
+
+                                        if(data.db_success){
+                                            toastr.success(data.db_success);
+                                        setTimeout(function(){
+                                            $("#modal").modal('hide');
+                                            location.reload();
+                                        }, 1000);
+                                        }
+                                    },
+                                });
+                            }
+                    });
+                }
+            });
         });
 
         $(document).on("click", ".edit", function(){
