@@ -72,13 +72,11 @@
                         <button type="buttton" class="btn btn-outline-primary addNew"><i class="fa fa-plus"></i> Add New User</button>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered" id="tbl_role">
+                        <table class="table table-striped" id="tbl_role">
                             <thead>
                                 <tr>
                                     <th style="width:5%">#</th>
-                                    <th style="width:10%">PID</th>
                                     <th style="width:15%">User Name</th>
-                                    <th style="width:10%">Designation</th>
                                     <th style="width:15%">Email</th>
                                     <th style="width:10%">Phone</th>
                                     <th style="width:10%">Action</th>
@@ -329,17 +327,14 @@
                 },
                 'columns': [
                     {data: 'id'},
-                    {data: 'pid'},
                     {data: 'name'},
-                    {data: 'designation'},
                     {data: 'email'},
                     {data: 'phone'},
-
                     {
                     data: null,
                     render: function(d){
                         var html = "";
-                        html+="<td><button class='btn btn-warning btn-sm edit' data='"+d.id+"' title='Edit'><i class='fas fa-edit'></i></button>";
+                        html+="<td><button class='btn btn-primary btn-sm edit' data='"+d.id+"' title='Edit'><i class='fas fa-edit'></i></button>";
                         html+="&nbsp;<button class='btn btn-danger btn-sm delete' data='"+d.id+"' title='Delete'><i class='fas fa-trash'></i></button>";
                         return html;
 

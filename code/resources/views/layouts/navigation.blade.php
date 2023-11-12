@@ -46,7 +46,7 @@
             <span class="menu-title">User Manage</span>
             <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="ui-basic">
+        <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('user') }}">Users</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('role') }}">Roles</a></li>

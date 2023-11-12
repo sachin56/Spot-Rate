@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\U_user_role;
 use App\Models\User;
+use App\Mail\UserMail;
 use App\Models\UserRole;
+use App\Models\U_user_role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class UUserController extends Controller
@@ -49,6 +51,12 @@ class UUserController extends Controller
             try{
                 DB::beginTransaction();
 
+                $mailData = [
+                    'password' => $request->password,
+                    'name' => $request->name,
+                ];
+                $email= $request->email;
+
                 $user =new User;
                 $user->name = $request->name;
                 $user->email = $request->email;
@@ -68,9 +76,10 @@ class UUserController extends Controller
                     $user_role->save();
 
                 }
+                Mail::to($email)->cc(['kumar@fedexlk.com'])->send(new UserMail($mailData));
 
                 DB::commit();
-                return response()->json(['db_success' => 'User Updated']);
+                return response()->json(['db_success' => 'User Added']);
 
             }catch(\Throwable $th){
                 DB::rollback();
