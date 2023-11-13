@@ -6,7 +6,7 @@
 ## Run the project 
 
    ##  Clone the project
-      `git clone https://github.com/sachin56/Lead-Lanka.git`
+      `git clone https://github.com/sachin56/Spot-Rate.git`
 
    ## Run command   
       `docker compose up -d`
