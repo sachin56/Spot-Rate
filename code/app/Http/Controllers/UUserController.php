@@ -54,6 +54,7 @@ class UUserController extends Controller
                 $mailData = [
                     'password' => $request->password,
                     'name' => $request->name,
+                    'useremail'=>$request->email,
                 ];
                 $email= $request->email;
 

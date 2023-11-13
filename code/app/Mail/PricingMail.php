@@ -13,16 +13,13 @@ class PricingMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $name,$companyname,$weight,$destination;
+    public $mailData;
     /**
      * Create a new message instance.
      */
-    public function __construct($name,$company_name,$weight,$destination)
+    public function __construct($mailData)
     {
-        $this->name=$name;
-        $this->companyname=$company_name;
-        $this->weight=$weight;
-        $this->destination=$destination;
+        $this->mailData=$mailData;
     }
 
     /**
@@ -41,7 +38,7 @@ class PricingMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail.pricing',
         );
     }
 

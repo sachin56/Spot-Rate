@@ -43,6 +43,14 @@ class AERequestController extends Controller
             try{
                 DB::beginTransaction();
 
+                $mailData = [
+                    'company_name' => $request->company_name,
+                    'weight' => $request->weight,
+                    'destination'=>$request->destination,
+                    'ae_rate'=>$request->ae_rate,
+                    'ae_name'=>Auth::guard('admin')->user()->name,
+                ];
+
                 $type = new AERequestForm;
                 $type->icpc_no = $request->icpc_no;
                 $type->mount_code = $request->mount_code;
@@ -59,6 +67,8 @@ class AERequestController extends Controller
                 }
                 $type->staus = '0';
                 $type->save();
+
+                Mail::to('heshan.mu@fedexlk.com')->cc(['kumar@fedexlk.com'])->send(new PricingMail($mailData));
 
                 // Mail::to($request->email)->send(new PricingMail(Auth::guard('admin')->user()->name,$type->company_name,$type->weight,$type->destination));
                 
