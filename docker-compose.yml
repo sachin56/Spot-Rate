@@ -42,13 +42,13 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "5521:3306"
+      - "7260:3306"
     volumes:
       - ./config/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
       - ./db/mysql:/var/lib/mysql
     environment:
       MYSQL_DATABASE: spotrate
-      MYSQL_ROOT_PASSWORD: exam
+      MYSQL_ROOT_PASSWORD: spotrate#1234
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
       TZ: Asia/Colombo
