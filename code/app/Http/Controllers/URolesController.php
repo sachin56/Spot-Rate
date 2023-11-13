@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\UserRole;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -93,6 +94,24 @@ class URolesController extends Controller
 
         return response()->json($result);
 
+    }
+
+    public static function getroles(){
+        $user_role=DB::table('u_user_roles')
+        ->select('role_id')
+        ->where('user_id','=',Auth::user()->id)
+        ->get();
+
+        return $user_role;
+    }
+
+    public static function getrolesAdmin(){
+        $user_role=DB::table('u_user_roles')
+        ->select('role_id')
+        ->where('user_id','=',Auth::guard('admin')->user()->id)
+        ->get();
+
+        return $user_role;
     }
 
 }
