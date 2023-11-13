@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Connect Plus</title>
+    <title>Spot Rate</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -27,7 +27,7 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
-                  <img src="../../assets/images/logo-dark.svg">
+                  <img src="https://crn.advantisexpress.com//images/advantis-express.png" alt="logo" width="175px" height="66px">
                 </div>
                 <h4>New here?</h4>
                 <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
@@ -72,7 +72,7 @@
                   <div class="mt-3">
                     <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn submit">SIGN UP</button>
                   </div>
-                  <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="login.html" class="text-primary">Login</a>
+                  <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="{{route('login')}}" class="text-primary">Login</a>
                   </div>
                 </form>
               </div>

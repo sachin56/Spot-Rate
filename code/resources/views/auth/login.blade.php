@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Connect Plus</title>
+    <title>Spot Rate</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -27,7 +27,7 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
-                  <img src="../../assets/images/logo-dark.svg">
+                  <img src="https://crn.advantisexpress.com//images/advantis-express.png" alt="logo" width="175px" height="66px">
                 </div>
                 <h4>Hello! let's get started</h4>
                 <h6 class="font-weight-light">Sign in to continue.</h6>
@@ -48,7 +48,7 @@
                   @enderror
 
                   <div class="mt-3">
-                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn submit">SIGN IN</button>
+                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn submit" >SIGN IN</button>
                   </div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
@@ -57,7 +57,7 @@
                     </div>
                     <a href="#" class="auth-link text-black">Forgot password?</a>
                   </div>
-                  <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="register.html" class="text-primary">Create</a>
+                  <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="{{route('register')}}" class="text-primary">Create</a>
                   </div>
                 </form>
               </div>
