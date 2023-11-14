@@ -52,7 +52,7 @@
             <span class="menu-title">Charts</span>
         </a>
         </li> --}}
-
+        @if(Auth::guard('admin')->check())
         <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
             <span class="icon-bg"><i class="mdi mdi-lock menu-icon"></i></span>
@@ -66,6 +66,7 @@
             </ul>
         </div>   
         </li>
+        @endif
         {{-- <li class="nav-item documentation-link">
         <a class="nav-link" href="" target="_blank">
             <span class="icon-bg">
@@ -110,6 +111,7 @@
             <span class="menu-title">Take Tour</span></a>
         </div>
         </li>
+        @if(Auth::guard('admin')->check())
         <li class="nav-item sidebar-user-actions">
         <div class="sidebar-user-menu">
             <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi mdi-logout menu-icon"></i>
@@ -119,6 +121,15 @@
             <span class="menu-title">Log Out</span></a>
         </div>
         </li>
+        @else
+        <li class="nav-item sidebar-user-actions">
+            <div class="sidebar-user-menu">
+                <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi mdi-logout menu-icon"></i>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                <span class="menu-title">Log Out</span></a>
+        @endif
     </ul>
 </nav>
     <!-- partial -->
