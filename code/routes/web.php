@@ -67,9 +67,9 @@ Route::prefix('admin')->group(function () {
     Route::delete('/user/{id}', [UUserController::class,'destroy'])->middleware('admin');
 });
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
