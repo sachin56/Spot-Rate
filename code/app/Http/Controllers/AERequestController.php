@@ -52,7 +52,6 @@ class AERequestController extends Controller
                     'company_name' => $request->company_name,
                     'weight' => $request->weight,
                     'destination'=>$request->destination,
-                    'ae_rate'=>$request->ae_rate,
                     'ae_name'=>$name,
                 ];
 
