@@ -73,7 +73,7 @@ class AERequestController extends Controller
                 $type->staus = '0';
                 $type->save();
 
-                Mail::to('heshan.mu@fedexlk.com')->cc(['kumar@fedexlk.com'])->send(new PricingMail($mailData));
+                Mail::to('pricing@fedexlk.com')->cc(['kumar@fedexlk.com'])->send(new PricingMail($mailData));
 
                 // Mail::to($request->email)->send(new PricingMail(Auth::guard('admin')->user()->name,$type->company_name,$type->weight,$type->destination));
                 
