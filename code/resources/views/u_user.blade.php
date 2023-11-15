@@ -34,6 +34,18 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12">
+                    <label for="email">Sales Code</label>
+                    <input type="email" class="form-control" id="sales_code" name="sales_code" placeholder="Enter Email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                    <label for="email">Phone Number</label>
+                    <input type="email" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter Email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
                     <label for="tele_no">User Role</label><br>
                     <select name="role_id" id="role_id" required class="form-control col-md-12" multiple="multiple">
                         @foreach($roles as $role)
@@ -79,6 +91,7 @@
                                     <th style="width:15%">User Name</th>
                                     <th style="width:15%">Email</th>
                                     <th style="width:10%">Phone</th>
+                                    <th style="width:10%">Sales Code</th>
                                     <th style="width:10%">Action</th>
                                 </tr>
                             </thead>
@@ -148,7 +161,9 @@
                     var name =$("#name").val();
                     var email =$("#email").val();
                     var password =$("#password").val();
-                    var role_id =$("#role_id").val()
+                    var role_id =$("#role_id").val();
+                    var sales_code =$("#sales_code").val()
+                    var phoneNumber =$("#phoneNumber").val()
 
                     Swal.fire({
                         title: 'Are you sure?',
@@ -329,7 +344,8 @@
                     {data: 'id'},
                     {data: 'name'},
                     {data: 'email'},
-                    {data: 'phone'},
+                    {data: 'phoneNumber'},
+                    {data: 'sales_code'},
                     {
                     data: null,
                     render: function(d){

@@ -9,13 +9,17 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item nav-category">Main</li>
+        @if (Auth::guard('admin')->check())
         <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.dashboard') }}">
             <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
             <span class="menu-title">Dashboard</span>
         </a>
         </li>
-        @if ($roles->contains('role_id',2) || Auth::guard('admin')->check())
+        @else
+        
+
+        @if (Auth::guard('admin')->check())
         <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
             <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
@@ -30,7 +34,24 @@
         </div>
         </li>
         @endif
-        @if ($roles->contains('role_id',3) || Auth::guard('admin')->check())
+
+        @if ($roles->contains('role_id',2))
+        <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
+            <span class="menu-title">AE</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ route('AEAdmin') }}">Request Form</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('AETable') }}">Request Form Table</a></li>
+            </ul>
+        </div>
+        </li>
+        @endif
+
+        @if (Auth::guard('admin')->check())
         <li class="nav-item">
         <a class="nav-link" href="{{ route('pricing') }}">
             <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
@@ -38,6 +59,16 @@
         </a>
         </li>
         @endif
+
+        @if ($roles->contains('role_id',3))
+        <li class="nav-item">
+        <a class="nav-link" href="{{ route('user_pricing') }}">
+            <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
+            <span class="menu-title">Pricing</span>
+        </a>
+        </li>
+        @endif
+
         @if(Auth::guard('admin')->check())
         <li class="nav-item">
         <a class="nav-link" href="{{ route('billing') }}">

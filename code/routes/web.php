@@ -80,16 +80,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/ae-requestform',[AERequestController::class,'index'])->name('request_rate');
+    Route::get('/ae-requestform',[AERequestController::class,'index'])->name('user_request_rate');
     Route::get('/ae-requestform/create',[AERequestController::class,'create']);
     Route::post('/ae-requestform/store',[AERequestController::class,'store']);
     Route::get('/ae-requestform/{id}',[AERequestController::class,'show']);
     Route::put('/ae-requestform/{id}',[AERequestController::class,'update']);
     Route::put('/ae-requestform/status/{id}',[AERequestController::class,'ae_change_status']);
 
-    Route::get('/requesttable',[AERequestTableController::class,'index']);
+    Route::get('/requesttable',[AERequestTableController::class,'index'])->name('user_ae_table');
 
-    Route::get('/pricing-form',[PricingRateController::class,'index']);
+    Route::get('/pricing-form',[PricingRateController::class,'index'])->name('user_pricing');
     Route::get('/pricing-form/create',[PricingRateController::class,'create']);
     Route::post('/pricing-form',[PricingRateController::class,'store']);
 
