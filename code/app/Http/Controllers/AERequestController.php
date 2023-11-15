@@ -42,13 +42,18 @@ class AERequestController extends Controller
         }else{
             try{
                 DB::beginTransaction();
+                if (Auth::guard('admin')->check()){
+                    $name = Auth::guard('admin')->user()->name;
+                }else{
+                    $name = Auth::user()->name;
+                }
 
                 $mailData = [
                     'company_name' => $request->company_name,
                     'weight' => $request->weight,
                     'destination'=>$request->destination,
                     'ae_rate'=>$request->ae_rate,
-                    'ae_name'=>Auth::guard('admin')->user()->name,
+                    'ae_name'=>$name,
                 ];
 
                 $type = new AERequestForm;
