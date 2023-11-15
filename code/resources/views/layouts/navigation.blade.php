@@ -9,7 +9,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item nav-category">Main</li>
-        
+
         <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.dashboard') }}">
             <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
@@ -44,8 +44,8 @@
         </a>
         <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{ route('AEAdmin') }}">Request Form</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{ route('AETable') }}">Request Form Table</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('user_request_rate') }}">Request Form</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('user_ae_table') }}">Request Form Table</a></li>
             </ul>
         </div>
         </li>
