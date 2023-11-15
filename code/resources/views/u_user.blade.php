@@ -162,8 +162,8 @@
                     var email =$("#email").val();
                     var password =$("#password").val();
                     var role_id =$("#role_id").val();
-                    var sales_code =$("#sales_code").val()
-                    var phoneNumber =$("#phoneNumber").val()
+                    var sales_code =$("#sales_code").val();
+                    var phoneNumber =$("#phoneNumber").val();
 
                     Swal.fire({
                         title: 'Are you sure?',
@@ -180,7 +180,7 @@
                                     'type': 'ajax',
                                     'dataType': 'json',
                                     'method': 'post',
-                                    'data' : {name:name,email:email,role_id:role_id,password:password},
+                                    'data' : {name:name,email:email,role_id:role_id,password:password,sales_code:sales_code,phoneNumber:phoneNumber},
                                     'url': 'user',
                                     'async': false,
                                     success:function(data){
@@ -227,6 +227,8 @@
                     $("#hid").val(data.users.id);
                     $("#name").val(data.users.name);
                     $("#email").val(data.users.email);
+                    $("#sales_code").val(data.users.sales_code);
+                    $("#phoneNumber").val(data.users.phoneNumber);
 
                     var u_user_roles = [];
                     for(var i=0;i<data.u_user_roles.length;i++){
@@ -244,7 +246,9 @@
                     var id = $("#hid").val();
                     var name =$("#name").val();
                     var email =$("#email").val();
-                    var role_id =$("#role_id").val()
+                    var role_id =$("#role_id").val();
+                    var sales_code =$("#sales_code").val();
+                    var phoneNumber =$("#phoneNumber").val();
 
                     Swal.fire({
                         title: 'Are you sure?',
@@ -261,7 +265,7 @@
                                     'type': 'ajax',
                                     'dataType': 'json',
                                     'method': 'put',
-                                    'data' : {name:name,email:email,role_id:role_id},
+                                    'data' : {name:name,email:email,role_id:role_id,sales_code:sales_code,phoneNumber:phoneNumber},
                                     'url': 'user/'+id,
                                     'async': false,
                                     success:function(data){

@@ -1,5 +1,9 @@
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+        <img src="https://crn.advantisexpress.com//images/advantis-express.png" class="logo" width="1575px" height="566px">
+    </div>
+    
+    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
         {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
     </div>
 

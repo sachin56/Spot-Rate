@@ -61,6 +61,8 @@ class UUserController extends Controller
                 $user =new User;
                 $user->name = $request->name;
                 $user->email = $request->email;
+                $user->sales_code = $request->sales_code;
+                $user->phoneNumber = $request->phoneNumber;
                 $user->password = Hash::make($request->password);
 
                 $user->save();
@@ -107,6 +109,8 @@ class UUserController extends Controller
                 $user = User::find($request->id);
                 $user->name = $request->name;
                 $user->email = $request->email;
+                $user->sales_code = $request->sales_code;
+                $user->phoneNumber = $request->phoneNumber;
 
                 $user->save();
 

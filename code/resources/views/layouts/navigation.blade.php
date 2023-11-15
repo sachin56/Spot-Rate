@@ -1,8 +1,8 @@
 <!-- partial:../../partials/_sidebar.html -->
 @if (Auth::guard('admin')->check())
-`<?php $roles=App\Http\Controllers\URolesController::getrolesAdmin(); ?>
+<?php $roles=App\Http\Controllers\URolesController::getrolesAdmin(); ?>
 @else
-`<?php $roles=App\Http\Controllers\URolesController::getroles(); ?>
+<?php $roles=App\Http\Controllers\URolesController::getroles(); ?>
 @endif
 
 
@@ -16,9 +16,6 @@
             <span class="menu-title">Dashboard</span>
         </a>
         </li>
-
-
-
         @if (Auth::guard('admin')->check())
         <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -77,12 +74,7 @@
         </a>
         </li>
         @endif
-        {{-- <li class="nav-item">
-        <a class="nav-link" href="../../pages/charts/chartjs.html">
-            <span class="icon-bg"><i class="mdi mdi-chart-bar menu-icon"></i></span>
-            <span class="menu-title">Charts</span>
-        </a>
-        </li> --}}
+
         @if(Auth::guard('admin')->check())
         <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
