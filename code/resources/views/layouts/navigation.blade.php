@@ -9,15 +9,15 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item nav-category">Main</li>
-        @if (Auth::guard('admin')->check())
+        
         <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.dashboard') }}">
             <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
             <span class="menu-title">Dashboard</span>
         </a>
         </li>
-        @else
-        
+
+
 
         @if (Auth::guard('admin')->check())
         <li class="nav-item">
