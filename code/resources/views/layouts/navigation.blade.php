@@ -112,7 +112,7 @@
             <div>
                 <div class="d-flex align-items-center">
                 <div class="sidebar-profile-img">
-                    <img src="../../assets/images/faces/face28.png" alt="image">
+                    <img src="../../assets/images/faces/profile.png" alt="image">
                 </div>
                 <div class="sidebar-profile-text">
                     <p class="mb-1">
