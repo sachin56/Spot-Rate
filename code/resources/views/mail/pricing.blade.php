@@ -196,7 +196,7 @@ td.t11,td.t6{padding-top:50px !important;padding-bottom:50px !important}div.t16{
 <!--[if !mso]><!--><td class="t73" style="background-color:#022FAB;overflow:hidden;width:326px;text-align:center;line-height:50px;mso-line-height-rule:exactly;mso-text-raise:10px;border-radius:14px 14px 14px 14px;">
 <!--<![endif]-->
 <!--[if mso]><td class="t73" style="background-color:#022FAB;overflow:hidden;width:326px;text-align:center;line-height:50px;mso-line-height-rule:exactly;mso-text-raise:10px;border-radius:14px 14px 14px 14px;"><![endif]-->
-<a class="t79" href="https://tabular.email" style="display:block;margin:0;Margin:0;font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Inter';line-height:50px;font-weight:600;font-style:normal;font-size:18px;text-decoration:none;direction:ltr;color:#FFFFFF;text-align:center;mso-line-height-rule:exactly;mso-text-raise:10px;" target="_blank">Go To System</a></td>
+<a class="t79" href="https://spotrate.advantisexpress.com/" style="display:block;margin:0;Margin:0;font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Inter';line-height:50px;font-weight:600;font-style:normal;font-size:18px;text-decoration:none;direction:ltr;color:#FFFFFF;text-align:center;mso-line-height-rule:exactly;mso-text-raise:10px;" target="_blank">Go To System</a></td>
 </tr></table>
 </td></tr><tr><td><div class="t131" style="mso-line-height-rule:exactly;mso-line-height-alt:20px;line-height:20px;font-size:1px;display:block;">&nbsp;</div></td></tr><tr><td>
 <table class="t133" role="presentation" cellpadding="0" cellspacing="0" align="left"><tr>
