@@ -142,10 +142,10 @@ class AERequestController extends Controller
 
     //basically this doing submit to data in billing
     public function ae_change_status(Request $request){
+
         $validator = Validator::make($request->all(), [
             'awb' => 'required',
             'mount_code' => 'required',
-            'icpc_no' => 'required',
             'status' => 'required',
         ]);
 
