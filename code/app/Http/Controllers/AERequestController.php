@@ -34,6 +34,7 @@ class AERequestController extends Controller
             'company_name' => 'required',
             'weight' => 'required',
             'destination' => 'required',
+            'service' => 'required',
         ]);
 
         if($validator->fails()){
