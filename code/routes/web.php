@@ -86,7 +86,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/ae-requestform/{id}',[AERequestController::class,'show']);
     Route::put('/ae-requestform/{id}',[AERequestController::class,'update']);
     Route::put('/ae-requestform/status/{id}',[AERequestController::class,'ae_change_status']);
-    Route::put('/ae-requestform/closelost/{id}',[AERequestController::class,'ae_change_status']);
+    Route::put('/ae-requestform/closelost/{id}',[AERequestController::class,'ae_change_closelost']);
 
     Route::get('/requesttable',[AERequestTableController::class,'index'])->name('user_ae_table');
 
