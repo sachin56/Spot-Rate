@@ -146,7 +146,7 @@ class AERequestController extends Controller
     public function ae_change_status(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'awb' => 'required',
+            'awb' => 'required | numeric',
             'mount_code' => 'required | numeric|min:9',
             'icpc_no' => 'required',
             'status' => 'required',
