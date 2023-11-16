@@ -143,6 +143,7 @@
                                 <th>Company Name</th>
                                 <th>Desination Of Package</th>
                                 <th>Requested Rate</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -331,6 +332,22 @@
                     data: null,
                     render: function(d){
                         var html = "";
+                        if(d.staus==1){
+                            html+='&nbsp;&nbsp;<label class="badge badge-warning"><b>Pricing</b></label>&nbsp;&nbsp;</br>';
+                        }else if(d.staus == 2){
+                            html+='&nbsp;&nbsp;<label class="badge badge-info"><b>AE</b></label>&nbsp;&nbsp;</br>';
+                        }else{
+                            html+='&nbsp;&nbsp;<label class="badge badge-succes"><b>Submitted</b></label>&nbsp;&nbsp;</br>';
+                        }
+                        return html;
+
+                    }
+
+                },
+                {
+                    data: null,
+                    render: function(d){
+                        var html = "";
                         html+="&nbsp;&nbsp;<td><button class='btn btn-primary btn-sm edit' data='"+d.id+"' title='Edit'><i class='fas fa-arrow-alt-circle-left'></i></i></button>";
                             @if(Auth::guard('admin')->check())
                                 html+="&nbsp;<button class='btn btn-danger btn-sm delete' data='"+d.id+"'title='Delete'><i class='fas fa-trash'></i></button>";
@@ -340,6 +357,7 @@
                     }
 
                 }
+
             ]
         });
     }

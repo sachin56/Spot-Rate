@@ -627,8 +627,7 @@
                             html+="&nbsp;&nbsp;<td><button class='btn btn-success btn-sm ae' data='"+d.id+"' title='Edit'><i class='mdi mdi-apple-keyboard-command'></i></i></button>";
                         }
                         @if(Auth::guard('admin')->check())
-
-                        html+="&nbsp;<button class='btn btn-danger btn-sm delete' data='"+d.id+"'title='Delete'><i class='fas fa-trash'></i></button>";
+                            html+="&nbsp;<button class='btn btn-danger btn-sm delete' data='"+d.id+"'title='Delete'><i class='fas fa-trash'></i></button>";
                         @endif
                         return html;
 
