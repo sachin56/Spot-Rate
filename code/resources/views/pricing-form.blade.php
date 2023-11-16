@@ -247,8 +247,9 @@
                 }
             });
             $("#submitreject").click(function(){
-                $(".submitreject").prepend('<i class="fa fa-spinner fa-spin"></i>');
-                $(".submitreject").attr("disabled", "disabled");
+                
+            $(".submitreject").prepend('<i class="fa fa-spinner fa-spin"></i>');
+            $(".submitreject").attr("disabled", "disabled");
             if($("#hid").val() != ""){
                 var id =$("#hid").val();
                 console.log(id);

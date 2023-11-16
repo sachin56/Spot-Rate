@@ -555,7 +555,7 @@
                                 'dataType': 'json',
                                 'method': 'put',
                                 'data' : {awb:awb,status:status},
-                                'url': 'ae-requestform/status/'+id,
+                                'url': 'ae-requestform/closelost/'+id,
                                 'async': false,
                                 success:function(data){
                                 if(data.validation_error){
@@ -573,7 +573,7 @@
                                     if(data.db_success){
                                     $(".submit_reject").find('.fa-spinner').remove();
                                     $(".submit_reject").removeAttr("disabled");    
-                                    toastr.success(data.db_success);
+                                    toastr.warning(data.db_success);
                                     setTimeout(function(){
                                         $("#modal").modal('hide');
                                         location.reload();

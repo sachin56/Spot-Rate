@@ -168,7 +168,42 @@ class AERequestController extends Controller
                 $type->save();
 
                 DB::commit();
-                return response()->json(['db_success' => 'Added New Rate']);
+                return response()->json(['db_success' => 'Added Rate']);
+
+            }catch(\Throwable $th){
+                DB::rollback();
+                throw $th;
+                return response()->json(['db_error' =>'Database Error'.$th]);
+            }
+
+        }
+    }
+
+    public function ae_change_closelost(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'awb' => 'required',
+            'status' => 'required',
+        ]);
+
+        if($validator->fails()){
+            return response()->json(['validation_error' => $validator->errors()->all()]);
+        }else{
+            try{
+                DB::beginTransaction();
+
+                $type = AERequestForm::find($request->id);
+                $type->awb = $request->awb;
+                $type->mount_code = $request->mount_code;
+                $type->icpc_no = $request->icpc_no;
+                $type->ae_status = $request->status;
+                $type->fixed_rate = $request->fixed_rate;
+                $type->staus = '2';
+
+                $type->save();
+
+                DB::commit();
+                return response()->json(['db_success' => 'Added Rate']);
 
             }catch(\Throwable $th){
                 DB::rollback();
