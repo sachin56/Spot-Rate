@@ -137,11 +137,11 @@
                     <table class="table table-striped" id="datatable">
                         <thead>
                             <tr>
-                                <th>ICPC No</th>
                                 <th>Mount Code</th>
                                 <th>Weight</th>
                                 <th>Company Name</th>
                                 <th>Desination Of Package</th>
+                                <th>Pricing Status</th>
                                 <th>AE Status</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -322,11 +322,26 @@
                         'url': 'billing-form/create',
                     },
             'columns': [
-                {data: "icpc_no"},
                 {data: "mount_code"},
                 {data: "weight"},
                 {data: "company_name"},
                 {data: "destination"},
+                {
+                    data: null,
+                    render: function(d){
+                        var html = "";
+                        if(d.pricing_status == 0){
+                            html+='&nbsp;&nbsp;<label class="badge badge-primary"><b>Approve</b></label>&nbsp;&nbsp;</br>';
+                        }else if(d.pricing_status == 1){
+                            html+='&nbsp;&nbsp;<label class="badge badge-danger"><b>Reject</b></label>&nbsp;&nbsp;</br>';
+                        }else{
+                            html+='&nbsp;&nbsp;<label class="badge badge-warning"><b>Pending</b></label>&nbsp;&nbsp;</br>';
+                        }
+                        return html;
+
+                    }
+
+                },
                 {
                     data: null,
                     render: function(d){

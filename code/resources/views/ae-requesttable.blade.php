@@ -177,7 +177,7 @@
                     </div>
                   </div>
                   <hr>
-                  <h3 align="left">Pricing</h3>
+                  <h3 align="center">Pricing</h3>
                   <br>
                   <div class="row">
                     <div class="col-md-12">
@@ -195,7 +195,7 @@
                     <div id="pricing_status"></div>
                   </div>
                   <hr>
-                  <h3 align="left">Finel Process</h3>
+                  <h3 align="center">Final Process</h3>
                   <br>
                   <div class="row">
                     <div class="col-md-6">
