@@ -142,7 +142,7 @@
                                 <th>Weight</th>
                                 <th>Company Name</th>
                                 <th>Desination Of Package</th>
-                                <th>Requested Rate</th>
+                                <th>AE Status</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -327,7 +327,22 @@
                 {data: "weight"},
                 {data: "company_name"},
                 {data: "destination"},
-                {data: "ae_rate"},
+                {
+                    data: null,
+                    render: function(d){
+                        var html = "";
+                        if(d.ae_status == 0){
+                            html+='&nbsp;&nbsp;<label class="badge badge-success"><b>Close Won</b></label>&nbsp;&nbsp;</br>';
+                        }else if(d.ae_status == 1){
+                            html+='&nbsp;&nbsp;<label class="badge badge-danger"><b>Close Lost</b></label>&nbsp;&nbsp;</br>';
+                        }else{
+                            html+='&nbsp;&nbsp;<label class="badge badge-warning"><b>Pending</b></label>&nbsp;&nbsp;</br>';
+                        }
+                        return html;
+
+                    }
+
+                },
                 {
                     data: null,
                     render: function(d){
