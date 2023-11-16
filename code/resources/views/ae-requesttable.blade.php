@@ -319,14 +319,20 @@
                         success:function(data){
                             if(data.validation_error){
                             validation_error(data.validation_error);//if has validation error call this function
+                            $(".submit_reject").find('.fa-spinner').remove();
+                            $(".submit_reject").removeAttr("disabled");
                             }
 
                             if(data.db_error){
                             db_error(data.db_error);
+                            $(".submit_reject").find('.fa-spinner').remove();
+                            $(".submit_reject").removeAttr("disabled");
                             }
 
                             if(data.db_success){
                             toastr.success(data.db_success);
+                            $(".submit_reject").find('.fa-spinner').remove();
+                            $(".submit_reject").removeAttr("disabled");
                             setTimeout(function(){
                                 location.reload();
                             }, 2000);
@@ -345,6 +351,7 @@
 
         //complain edit
     $(document).on("click", ".edit", function(){
+   
         $("#submit").css("display","none");
         var id = $(this).attr('data');
         pricing_status(id);
@@ -355,6 +362,7 @@
         $("#modal").modal('show');
         $(".modal-title").html('Update Request Form');
         $("#submit").html('Update Request Form');
+        $('#modal').modal({backdrop:'static', keyboard: false})
         // description_app ();
         $.ajax({
             'type': 'ajax',
@@ -432,9 +440,11 @@
     });   
 
     $(document).on("click", ".ae", function(){
+        ae_empty_form();
         var id = $(this).attr('data');
+        
         pricing_status(id);
-        empty_form();
+        
         
         $("#hid").val(id);
         
@@ -442,6 +452,7 @@
         $(".modal-title-ae").html('Request Form');
         $("#submit_ae").html('Close Won');
         $("#submit_reject").html('Close Lost');
+        $('#modal').modal({backdrop:'static', keyboard: false});
         // description_app ();
         $.ajax({
             'type': 'ajax',
@@ -469,8 +480,8 @@
             if($("#hid").val() != ""){
                 var id =$("#hid").val();
                 var awb =$("#awb").val();
-                var icpc_no =$("#icpc_no").val();
-                var mount_code =$("#mount_code").val();
+                var icpc_no =$("#icpc_no_ae").val();
+                var mount_code =$("#mount_code_ae").val();
                 var fixed_rate =$("#fixed_rate").val();
                 var status ='0';
 
@@ -495,13 +506,19 @@
                                 success:function(data){
                                 if(data.validation_error){
                                     validation_error(data.validation_error);//if has validation error call this function
+                                    $(".submit_reject").find('.fa-spinner').remove();
+                                    $(".submit_reject").removeAttr("disabled");
                                     }
 
                                     if(data.db_error){
+                                    $(".submit_reject").find('.fa-spinner').remove();
+                                    $(".submit_reject").removeAttr("disabled");
                                     db_error(data.db_error);
                                     }
 
                                     if(data.db_success){
+                                    $(".submit_reject").find('.fa-spinner').remove();
+                                    $(".submit_reject").removeAttr("disabled");
                                     toastr.success(data.db_success);
                                     setTimeout(function(){
                                         $("#modal").modal('hide');
@@ -542,14 +559,20 @@
                                 'async': false,
                                 success:function(data){
                                 if(data.validation_error){
+                                    $(".submit_reject").find('.fa-spinner').remove();
+                                    $(".submit_reject").removeAttr("disabled");
                                     validation_error(data.validation_error);//if has validation error call this function
-                                    }
+                                }
 
-                                    if(data.db_error){
+                                if(data.db_error){
+                                    $(".submit_reject").find('.fa-spinner').remove();
+                                    $(".submit_reject").removeAttr("disabled");
                                     db_error(data.db_error);
-                                    }
+                                }
 
                                     if(data.db_success){
+                                    $(".submit_reject").find('.fa-spinner').remove();
+                                    $(".submit_reject").removeAttr("disabled");    
                                     toastr.success(data.db_success);
                                     setTimeout(function(){
                                         $("#modal").modal('hide');
@@ -632,21 +655,18 @@
         });  
     }
 
-        function empty_form(){
-        
-        $("#reference_no").val("");
-        $("#customer_name").val("");
-        $("#credit_note_amount").val("");
-        $("#add_invove_no").val("");
-        $("#awb").val("");
-        $("#calculation").val("");
-        $("#credit_note_reasone").val("");
-        $("#crm_description").val("");
-        $("#credit_date").val("");
-        $("#credit_status").val("");
-        $("#credit_issue").val("");
-        $("#credit_note_cost").val("");
-        $("#responsibale_persone").val("");
+        function ae_empty_form(){
+        document.getElementById("pricing_status").innerHTML = "";
+        $("#mount_code_ae").val("");
+        $("#icpc_no_ae").val("");
+        $("#weight_ae").val("");
+        $("#company_nam_ae").val("");
+        $("#destination_ae").val("");
+        $("#ae_rate_ae").val("");
+        $("#service_ae").val("");
+        $("#ae_comment_ae").val("");
+        $("#offer_rate").val("");
+        $("#pricing_comment").val("");
     }
 
     function validation_error(error){
