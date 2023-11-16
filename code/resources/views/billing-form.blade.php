@@ -337,7 +337,7 @@
                         }else if(d.staus == 1){
                             html+='&nbsp;&nbsp;<label class="badge badge-info"><b>AE</b></label>&nbsp;&nbsp;</br>';
                         }else{
-                            html+='&nbsp;&nbsp;<label class="badge badge-succes"><b>Submitted</b></label>&nbsp;&nbsp;</br>';
+                            html+='&nbsp;&nbsp;<label class="badge badge-success"><b>Submitted</b></label>&nbsp;&nbsp;</br>';
                         }
                         return html;
 
