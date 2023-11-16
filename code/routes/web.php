@@ -94,7 +94,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pricing-form/create',[PricingRateController::class,'create']);
     Route::post('/pricing-form',[PricingRateController::class,'store']);
 
-    Route::get('/billing-form',[BillingController::class,'index']);
+    Route::get('/billing-form',[BillingController::class,'index'])->name('user_billing');
     Route::get('/billing-form/create',[BillingController::class,'create']);
 
     Route::get('/role',[URolesController::class,'index']);
