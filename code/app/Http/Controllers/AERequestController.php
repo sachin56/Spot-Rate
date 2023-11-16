@@ -22,7 +22,7 @@ class AERequestController extends Controller
 
         $result= DB::table('a_e_request_forms')
                 ->where('a_e_request_forms.staus','!=',2)
-                ->where('a_e_request_forms.assign_ae'.'=',Auth::user()->id)
+                ->where('a_e_request_forms.assign_ae','=',Auth::user()->id)
                 ->select('a_e_request_forms.*')
                 ->get();
 

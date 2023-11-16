@@ -33,14 +33,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Weight</label>
+                                <label>Weight *</label>
                                 <input type="text" class="form-control" name="weight" id="weight"
                                     placeholder="Enter Weight">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Company Name</label>
+                                <label>Company Name *</label>
                                 <input type="text" class="form-control" name="company_name" id="company_name" placeholder="Enter Company Name">
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                     <div class="row">
                       <div class="col-md-6">
                           <div class="form-group">
-                              <label>Desination Of Package</label>
+                              <label>Country *</label>
                               <input type="text" class="form-control" name="destination" id="destination"
                                   placeholder="Enter Desination Of Package">
                           </div>
@@ -65,7 +65,7 @@
                   <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Service</label>
+                            <label>Service *</label>
                             <select class="form-control" id="service">
                                 <option value="0">Select Service</option>
                                 <option value="1">Inbound / IP</option>

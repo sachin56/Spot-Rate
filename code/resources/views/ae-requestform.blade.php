@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Country</label>
+            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Country *</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" id="destination" placeholder="Country">
             </div>
@@ -46,7 +46,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Service</label>
+            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Service *</label>
             <div class="col-sm-9">
               <select class="form-control" id="service">
                 <option value="0">Select Service</option>
