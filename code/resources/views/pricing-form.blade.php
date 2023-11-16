@@ -227,14 +227,20 @@
                                     success:function(data){
                                     if(data.validation_error){
                                         validation_error(data.validation_error);//if has validation error call this function
+                                        $(".submit_reject").find('.fa-spinner').remove();
+                                        $(".submit_reject").removeAttr("disabled");
                                         }
 
                                         if(data.db_error){
                                         db_error(data.db_error);
+                                        $(".submit_reject").find('.fa-spinner').remove();
+                                        $(".submit_reject").removeAttr("disabled");
                                         }
 
                                         if(data.db_success){
                                         toastr.success(data.db_success);
+                                        $(".submit_reject").find('.fa-spinner').remove();
+                                        $(".submit_reject").removeAttr("disabled");
                                         setTimeout(function(){
                                             $("#modal").modal('hide');
                                             location.reload();
@@ -278,14 +284,20 @@
                                 success:function(data){
                                 if(data.validation_error){
                                     validation_error(data.validation_error);//if has validation error call this function
+                                    $(".submit_reject").find('.fa-spinner').remove();
+                                    $(".submit_reject").removeAttr("disabled");
                                     }
 
                                     if(data.db_error){
                                     db_error(data.db_error);
+                                    $(".submit_reject").find('.fa-spinner').remove();
+                                    $(".submit_reject").removeAttr("disabled");
                                     }
 
                                     if(data.db_success){
                                     toastr.success(data.db_success);
+                                    $(".submit_reject").find('.fa-spinner').remove();
+                                    $(".submit_reject").removeAttr("disabled");
                                     setTimeout(function(){
                                         $("#modal").modal('hide');
                                         location.reload();
