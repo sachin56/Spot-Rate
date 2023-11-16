@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AERequestForm;
+use App\Mail\AEMail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\AERequestForm;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class PricingRateController extends Controller
@@ -34,7 +36,27 @@ class PricingRateController extends Controller
         }else{
             try{
                 DB::beginTransaction();
+                $result= DB::table('a_e_request_forms')
+                        ->where('a_e_request_forms.id',$request->id)
+                        ->select('a_e_request_forms.assign_ae','a_e_request_forms.company_name','a_e_request_forms.weight','a_e_request_forms.destination')
+                        ->get();
+               
+                $email= DB::table('users')
+                        ->where('users.id',$result[0]->assign_ae)
+                        ->select('users.email','users.name')
+                        ->get();      
+                        
+                $mailData = [
+                    'offer_rate' =>$request->offer_rate,
+                    'comment' => $request->pricing_comment,
+                    'weight'=>$result[0]->weight,
+                    'destination'=>$result[0]->destination,
+                    'company_name'=>$result[0]->company_name,
+                    'name'=>$email[0]->name,
+                ];     
 
+                Mail::to($email[0]->email)->cc(['pricing@fedexlk.com'])->send(new AEMail($mailData));
+                
                 $type = AERequestForm::find($request->id);
                 $type->rate_offer = $request->offer_rate;
                 $type->pricing_comment = $request->pricing_comment;

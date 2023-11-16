@@ -13,12 +13,13 @@ class AEMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $mailData;
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($mailData)
     {
-        //
+         $this->mailData=$mailData;
     }
 
     /**
@@ -27,7 +28,7 @@ class AEMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'A E Mail',
+            subject: 'Offer Rate',
         );
     }
 
@@ -37,7 +38,7 @@ class AEMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail.ae',
         );
     }
 

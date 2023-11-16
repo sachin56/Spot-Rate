@@ -43,6 +43,7 @@ class AERequestController extends Controller
         }else{
             try{
                 DB::beginTransaction();
+                
                 if (Auth::guard('admin')->check()){
                     $name = Auth::guard('admin')->user()->name;
                 }else{
