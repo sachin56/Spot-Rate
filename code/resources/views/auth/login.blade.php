@@ -34,17 +34,17 @@
                 <form class="pt-3" method="POST" action="{{ route('login') }}">
                   @csrf
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-lg" placeholder="Username" id="email" name="email">
+                    <input type="email" class="form-control form-control-lg" placeholder="Email" id="email" name="email">
                   </div>
                   @error('email')
-                  <span class="error invalid-feedback">{{ $message }}</span>
+                    <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
                   
                   <div class="form-group">
                     <input type="password" class="form-control form-control-lg" placeholder="Password" id="password" name="password">
                   </div>
                   @error('password')
-                  <span class="error invalid-feedback">{{ $message }}</span>
+                    <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
 
                   <div class="mt-3">
@@ -70,14 +70,7 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="../../assets/js/off-canvas.js"></script>
-    <script src="../../assets/js/hoverable-collapse.js"></script>
-    <script src="../../assets/js/misc.js"></script>
+
     <!-- endinject -->
   </body>
 </html>
