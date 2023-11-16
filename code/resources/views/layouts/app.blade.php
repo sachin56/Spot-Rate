@@ -244,7 +244,11 @@
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:../../partials/_sidebar.html -->
-        @include('layouts.navigation')
+        @if (Auth::guard('admin')->check())
+          @include('admin.layouts.navigation')
+        @else
+          @include('layouts.navigation')
+        @endif  
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
