@@ -332,7 +332,7 @@
                     render: function(d){
                         var html = "";
                         if(d.ae_status == 0){
-                            html+='&nbsp;&nbsp;<label class="badge badge-success"><b>Close Won</b></label>&nbsp;&nbsp;</br>';
+                            html+='&nbsp;&nbsp;<label class="badge badge-info"><b>Close Won</b></label>&nbsp;&nbsp;</br>';
                         }else if(d.ae_status == 1){
                             html+='&nbsp;&nbsp;<label class="badge badge-danger"><b>Close Lost</b></label>&nbsp;&nbsp;</br>';
                         }else{
