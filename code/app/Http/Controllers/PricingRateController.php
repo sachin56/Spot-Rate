@@ -27,7 +27,6 @@ class PricingRateController extends Controller
 
         $validator = Validator::make($request->all(), [
             'offer_rate' => 'required',
-            'pricing_comment' => 'required',
         ]);
 
         if($validator->fails()){
