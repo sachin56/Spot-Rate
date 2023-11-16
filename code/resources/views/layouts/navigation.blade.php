@@ -77,11 +77,11 @@
         </li>
         @endif
 
-        @if(Auth::guard('admin')->check())
+        @if($roles->contains('role_id',3))
         <li class="nav-item">
-        <a class="nav-link" href="{{ route('billing') }}">
+        <a class="nav-link" href="{{ route('user_billing') }}">
             <span class="icon-bg"><i class="mdi mdi-format-list-bulleted menu-icon"></i></span>
-            <span class="menu-title">Billing</span>
+            <span class="menu-title">All Detalis</span>
         </a>
         </li>
         @endif
