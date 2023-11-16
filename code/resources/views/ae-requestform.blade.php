@@ -22,13 +22,13 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Weight</label>
+            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Weight *</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" id="weight" placeholder="Weight">
             </div>
           </div>
           <div class="form-group row">
-            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Company Name</label>
+            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Company Name *</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" id="company_name" placeholder="Company Name">
             </div>
@@ -50,8 +50,8 @@
             <div class="col-sm-9">
               <select class="form-control" id="service">
                 <option value="0">Select Service</option>
-                <option value="1">Inbount / IP</option>
-                <option value="2">Inbount / IPF</option>
+                <option value="1">Inbound / IP</option>
+                <option value="2">Inbound / IPF</option>
                 <option value="3">Outbound / IP</option>
                 <option value="4">Outbound / IPF</option>
               </select>

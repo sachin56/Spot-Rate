@@ -68,8 +68,8 @@
                             <label>Service</label>
                             <select class="form-control" id="service">
                                 <option value="0">Select Service</option>
-                                <option value="1">Inbount / IP</option>
-                                <option value="2">Inbount / IPF</option>
+                                <option value="1">Inbound / IP</option>
+                                <option value="2">Inbound / IPF</option>
                                 <option value="3">Outbound / IP</option>
                                 <option value="4">Outbound / IPF</option>
                             </select>
