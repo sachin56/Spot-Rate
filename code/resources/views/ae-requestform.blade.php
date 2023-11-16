@@ -84,8 +84,6 @@ $(document).ready(function(){
 
     // Submit data in backend
     $(document).on("click",".submit",function(){
-        $(".submit").prepend('<i class="fa fa-spinner fa-spin"></i>');
-        $(".submit").attr("disabled", "disabled");
         var hid = $("#hid").val();
           //save Category
         if(hid == ""){
@@ -140,6 +138,7 @@ $(document).ready(function(){
                 });
               }
           });
+
         };
     });
 

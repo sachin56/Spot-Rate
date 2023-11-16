@@ -147,7 +147,7 @@ class AERequestController extends Controller
 
         $validator = Validator::make($request->all(), [
             'awb' => 'required',
-            'mount_code' => 'required',
+            'mount_code' => 'required | numeric|min:9',
             'icpc_no' => 'required',
             'status' => 'required',
         ]);
