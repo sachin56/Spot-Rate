@@ -332,9 +332,9 @@
                     data: null,
                     render: function(d){
                         var html = "";
-                        if(d.staus==1){
+                        if(d.staus==0){
                             html+='&nbsp;&nbsp;<label class="badge badge-warning"><b>Pricing</b></label>&nbsp;&nbsp;</br>';
-                        }else if(d.staus == 2){
+                        }else if(d.staus == 1){
                             html+='&nbsp;&nbsp;<label class="badge badge-info"><b>AE</b></label>&nbsp;&nbsp;</br>';
                         }else{
                             html+='&nbsp;&nbsp;<label class="badge badge-succes"><b>Submitted</b></label>&nbsp;&nbsp;</br>';
