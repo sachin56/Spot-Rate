@@ -141,9 +141,9 @@
                                 <th>Weight</th>
                                 <th>Company Name</th>
                                 <th>Desination Of Package</th>
+                                <th>Status</th>
                                 <th>Pricing Status</th>
                                 <th>AE Status</th>
-                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -330,10 +330,26 @@
                     data: null,
                     render: function(d){
                         var html = "";
+                        if(d.staus==0){
+                            html+='&nbsp;&nbsp;<label class="badge badge-warning"><b>Pricing</b></label>&nbsp;&nbsp;</br>';
+                        }else if(d.staus == 1){
+                            html+='&nbsp;&nbsp;<label class="badge badge-info"><b>AE</b></label>&nbsp;&nbsp;</br>';
+                        }else{
+                            html+='&nbsp;&nbsp;<label class="badge badge-success"><b>Submitted</b></label>&nbsp;&nbsp;</br>';
+                        }
+                        return html;
+
+                    }
+
+                },
+                {
+                    data: null,
+                    render: function(d){
+                        var html = "";
                         if(d.pricing_status == 0){
-                            html+='&nbsp;&nbsp;<label class="badge badge-primary"><b>Approve</b></label>&nbsp;&nbsp;</br>';
+                            html+='&nbsp;&nbsp;<label class="badge badge-primary"><b>Approved</b></label>&nbsp;&nbsp;</br>';
                         }else if(d.pricing_status == 1){
-                            html+='&nbsp;&nbsp;<label class="badge badge-danger"><b>Reject</b></label>&nbsp;&nbsp;</br>';
+                            html+='&nbsp;&nbsp;<label class="badge badge-danger"><b>Rejected</b></label>&nbsp;&nbsp;</br>';
                         }else{
                             html+='&nbsp;&nbsp;<label class="badge badge-warning"><b>Pending</b></label>&nbsp;&nbsp;</br>';
                         }
@@ -352,22 +368,6 @@
                             html+='&nbsp;&nbsp;<label class="badge badge-danger"><b>Close Lost</b></label>&nbsp;&nbsp;</br>';
                         }else{
                             html+='&nbsp;&nbsp;<label class="badge badge-warning"><b>Pending</b></label>&nbsp;&nbsp;</br>';
-                        }
-                        return html;
-
-                    }
-
-                },
-                {
-                    data: null,
-                    render: function(d){
-                        var html = "";
-                        if(d.staus==0){
-                            html+='&nbsp;&nbsp;<label class="badge badge-warning"><b>Pricing</b></label>&nbsp;&nbsp;</br>';
-                        }else if(d.staus == 1){
-                            html+='&nbsp;&nbsp;<label class="badge badge-info"><b>AE</b></label>&nbsp;&nbsp;</br>';
-                        }else{
-                            html+='&nbsp;&nbsp;<label class="badge badge-success"><b>Submitted</b></label>&nbsp;&nbsp;</br>';
                         }
                         return html;
 
