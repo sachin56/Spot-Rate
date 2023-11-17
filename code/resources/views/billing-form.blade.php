@@ -130,9 +130,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                {{-- <div class="card-header">
-                    <button type="buttton" class="btn btn-primary addNew"><i class="fa fa-plus"></i> Add New Employee</button>
-                </div> --}}
+                <div class="card-header">
+                    <a type="buttton" class="btn btn-outline-success addNew" href="{{route('export')}}"> Export All Detail</a>
+                </div>
                 <div class="card-body">
                     <table class="table table-striped" id="datatable">
                         <thead>

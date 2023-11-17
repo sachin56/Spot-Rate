@@ -9,6 +9,7 @@ use App\Http\Controllers\AERequestController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\PricingRateController;
 use App\Http\Controllers\AERequestTableController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserDashboardController;
 
 /*
@@ -110,6 +111,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/{id}', [UUserController::class,'show']);
     Route::put('/user/{id}', [UUserController::class,'update']);
     Route::delete('/user/{id}', [UUserController::class,'destroy']);
+
+    Route::get('ae/export/', [ReportController::class, 'export'])->name('export');
 });
 
 require __DIR__.'/auth.php';
