@@ -1,3 +1,9 @@
+@if (Auth::guard('admin')->check())
+  <?php $roles=App\Http\Controllers\URolesController::getrolesAdmin(); ?>
+@else
+  <?php $roles=App\Http\Controllers\URolesController::getroles(); ?>
+@endif
+
 @extends('layouts.app')
 
 @section('content')
@@ -30,12 +36,18 @@
               <li class="nav-item">
                 <a class="nav-link" id="home-tab" data-bs-toggle="tab" href="#" role="tab" aria-selected="true">Users</a>
               </li>
+              @if($roles->contains('role_id',2))
               <li class="nav-item">
                 <a class="nav-link active" id="business-tab" data-bs-toggle="tab" href="#business-1" role="tab" aria-selected="false">AE</a>
               </li>
+              @endif
+
+              @if($roles->contains('role_id',3))
               <li class="nav-item">
-                <a class="nav-link" id="performance-tab" data-bs-toggle="tab" href="#" role="tab" aria-selected="false">Performance</a>
+                <a class="nav-link" id="pricing-tab" data-bs-toggle="tab" href="#pricing" role="tab" aria-selected="false">Pricing</a>
               </li>
+              @endif
+
               <li class="nav-item">
                 <a class="nav-link" id="conversion-tab" data-bs-toggle="tab" href="#" role="tab" aria-selected="false">Conversion</a>
               </li>
@@ -46,6 +58,7 @@
             </div>
           </div>
           <div class="tab-content tab-transparent-content">
+            @if($roles->contains('role_id',2))
             <div class="tab-pane fade show active" id="business-1" role="tabpanel" aria-labelledby="business-tab">
               <div class="row">
                 <div class="col-xl-4 col-lg-6 col-sm-6 grid-margin stretch-card">
@@ -81,19 +94,49 @@
                     </div>
                   </div>
                 </div>
-                {{-- <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                  <div class="card">
-                    <div class="card-body text-center">
-                      <h5 class="mb-2 text-dark font-weight-normal">Followers</h5>
-                      <h2 class="mb-4 text-dark font-weight-bold">4250k</h2>
-                      <div class="dashboard-progress dashboard-progress-4 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-cube icon-md absolute-center text-dark"></i></div>
-                      <p class="mt-4 mb-0">Decreased since yesterday</p>
-                      <h3 class="mb-0 font-weight-bold mt-2 text-dark">25%</h3>
-                    </div>
-                  </div>
-                </div> --}}
               </div>
             </div>
+            @endif
+
+            @if($roles->contains('role_id',3))
+            <div class="tab-pane fade show active" id="pricing" role="tabpanel" aria-labelledby="pricing-tab">
+              <div class="row">
+                <div class="col-xl-4 col-lg-6 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body text-center">
+                      <h5 class="mb-2 text-dark font-weight-normal">All Requested Rate</h5>
+                      <h2 class="mb-4 text-dark font-weight-bold">{{$totalCount}}</h2>
+                      <div class="dashboard-progress dashboard-progress-1 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-lightbulb icon-md absolute-center text-dark"></i></div>
+                      <p class="mt-4 mb-0">All Close Won Account Count</p>
+                      <h3 class="mb-0 font-weight-bold mt-2 text-dark">{{$allWon}}</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body text-center">
+                      <h5 class="mb-2 text-dark font-weight-normal">All Requested Rate</h5>
+                      <h2 class="mb-4 text-dark font-weight-bold">{{$totalCount}}</h2>
+                      <div class="dashboard-progress dashboard-progress-2 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-account-circle icon-md absolute-center text-dark"></i></div>
+                      <p class="mt-4 mb-0">All Close Lost Account Count</p>
+                      <h3 class="mb-0 font-weight-bold mt-2 text-dark">{{$allLost}}</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-4  col-lg-6 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body text-center">
+                      <h5 class="mb-2 text-dark font-weight-normal">All Requested Rate</h5>
+                      <h2 class="mb-4 text-dark font-weight-bold">{{$totalCount}}</h2>
+                      <div class="dashboard-progress dashboard-progress-3 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-eye icon-md absolute-center text-dark"></i></div>
+                      <p class="mt-4 mb-0">Pending Account</p>
+                      <h3 class="mb-0 font-weight-bold mt-2 text-dark">{{$allPending}}</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endif
           </div>
         </div>
     <!-- content-wrapper ends -->
