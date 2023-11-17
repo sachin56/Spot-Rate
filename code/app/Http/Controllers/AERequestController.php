@@ -170,7 +170,7 @@ class AERequestController extends Controller
                 $type->save();
 
                 DB::commit();
-                return response()->json(['db_success' => 'Added Rate']);
+                return response()->json(['db_success' => 'Added Colse Won']);
 
             }catch(\Throwable $th){
                 DB::rollback();
@@ -184,7 +184,6 @@ class AERequestController extends Controller
     public function ae_change_closelost(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'awb' => 'required',
             'status' => 'required',
         ]);
 
@@ -205,7 +204,7 @@ class AERequestController extends Controller
                 $type->save();
 
                 DB::commit();
-                return response()->json(['db_success' => 'Added Rate']);
+                return response()->json(['db_success' => 'Added Close Lost']);
 
             }catch(\Throwable $th){
                 DB::rollback();
