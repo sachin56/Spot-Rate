@@ -130,9 +130,15 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
+                @if (Auth::guard('admin')->check())
                 <div class="card-header">
-                    <a type="buttton" class="btn btn-outline-success addNew" href="{{route('export')}}"> Export All Detail</a>
+                    <a type="buttton" class="btn btn-outline-success addNew" href="{{route('admin.export')}}"> Export All Detail</a>
                 </div>
+                @else
+                    <div class="card-header">
+                        <a type="buttton" class="btn btn-outline-success addNew" href="{{route('export')}}"> Export All Detail</a>
+                    </div>
+                @endif
                 <div class="card-body">
                     <table class="table table-striped" id="datatable">
                         <thead>

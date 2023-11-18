@@ -67,6 +67,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/user/{id}', [UUserController::class,'show'])->middleware('admin');
     Route::put('/user/{id}', [UUserController::class,'update'])->middleware('admin');
     Route::delete('/user/{id}', [UUserController::class,'destroy'])->middleware('admin');
+
+    Route::get('ae/export/', [ReportController::class, 'export'])->middleware('admin')->name('admin.export');
 });
 
 Route::get('/', function () {
