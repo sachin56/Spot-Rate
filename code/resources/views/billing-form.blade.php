@@ -150,6 +150,7 @@
                                 <th>Pricing Status</th>
                                 <th>AE Status</th>
                                 <th>AE</th>
+                                <th>Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -360,10 +361,14 @@
             "bLengthChange": false,
             "autoWidth": false,
             "recordsFiltered": 28,
+            "columnDefs": [ {
+                    "targets": 7,
+                    format: 'D MMM YYYY',
+            } ],
             'ajax': {
                         'method': 'get',
                         'url': 'billing-form/create',
-                    },
+                    },        
             'columns': [
                 {data: "company_name"},
                 {data: "weight"},
@@ -417,6 +422,7 @@
 
                 },
                 {data:"username"},
+                {data:"created_at"},
                 {
                     data: null,
                     render: function(d){
