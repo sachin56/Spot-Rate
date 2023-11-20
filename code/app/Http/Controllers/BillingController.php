@@ -15,7 +15,6 @@ class BillingController extends Controller
 
     public function create(){
         $result= DB::table('a_e_request_forms')
-                ->where('a_e_request_forms.staus',2)
                 ->select('a_e_request_forms.*')
                 ->get();
 

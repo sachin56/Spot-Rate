@@ -18,8 +18,8 @@ class ReportExport implements FromCollection
         $result = DB::table('a_e_request_forms')
                     ->join('users','users.id','=','a_e_request_forms.assign_ae')
                     ->whereRaw("
-                        IF(a_e_request_forms.ae_status ==0)
-                            
+                        IF(a_e_request_forms.ae_status == 0)
+
                         ")
                     ->select('a_e_request_forms.*','user.name as username')
                     ->get();
