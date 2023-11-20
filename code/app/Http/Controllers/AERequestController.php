@@ -214,4 +214,11 @@ class AERequestController extends Controller
 
         }
     }
+
+    public function destroy($id){
+        $result = AERequestForm::destroy($id);
+
+        return response()->json($result);
+
+    }
 }

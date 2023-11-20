@@ -38,6 +38,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/ae-requestform/store',[AERequestController::class,'store'])->middleware('admin');
     Route::get('/ae-requestform/{id}',[AERequestController::class,'show'])->middleware('admin');
     Route::put('/ae-requestform/{id}',[AERequestController::class,'update'])->middleware('admin');
+    Route::delete('/ae-requestform/{id}',[AERequestController::class,'destroy'])->middleware('admin');
     Route::put('/ae-requestform/status/{id}',[AERequestController::class,'ae_change_status'])->middleware('admin');
 
     //AE Table Routes Admin

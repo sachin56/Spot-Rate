@@ -308,6 +308,43 @@
             });
         });   
 
+        $(document).on("click", ".delete", function(){
+            var id = $(this).attr('data');
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            'type': 'ajax',
+                            'dataType': 'json',
+                            'method': 'delete',
+                            'url': 'ae-requestform/'+id,
+                            'async': false,
+                            success: function(data){
+
+                            if(data){
+                                toastr.success('Credit Note Deleted');
+                                setTimeout(function(){
+                                location.reload();
+                                }, 2000);
+
+                            }
+
+                            }
+                        });
+
+                    }
+            });
+
+        });
+
 
     });
 
