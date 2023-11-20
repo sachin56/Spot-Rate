@@ -189,8 +189,6 @@
             
             $("#modal").modal('show');
             $(".modal-title").html('Update Request Form');
-            $("#submit").html('Confirm');
-            $("#submitreject").html('Reject');
             // description_app ();
             $.ajax({
                 'type': 'ajax',
