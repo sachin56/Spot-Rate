@@ -146,7 +146,7 @@
                                 <th>Mount Code</th>
                                 <th>Weight</th>
                                 <th>Company Name</th>
-                                <th>Desination Of Package</th>
+                                <th>Country</th>
                                 <th>Status</th>
                                 <th>Pricing Status</th>
                                 <th>AE Status</th>
