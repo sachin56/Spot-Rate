@@ -146,10 +146,10 @@
                                 <th>Company Name</th>
                                 <th>Weight</th>
                                 <th>Country</th>
-                                <th>Status</th>
+                                <th>Stage</th>
                                 <th>Pricing Status</th>
                                 <th>AE Status</th>
-                                <th>Assign AE</th>
+                                <th>AE</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
