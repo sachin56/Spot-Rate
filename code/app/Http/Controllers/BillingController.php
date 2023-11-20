@@ -15,7 +15,8 @@ class BillingController extends Controller
 
     public function create(){
         $result= DB::table('a_e_request_forms')
-                ->select('a_e_request_forms.*')
+                ->join('users','users.id','=','a_e_request_forms.assign_ae')
+                ->select('a_e_request_forms.*','users.name as username')
                 ->get();
 
         return DataTables($result)->make(true);

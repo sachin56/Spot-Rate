@@ -143,13 +143,13 @@
                     <table class="table table-striped" id="datatable">
                         <thead>
                             <tr>
-                                <th>Mount Code</th>
-                                <th>Weight</th>
                                 <th>Company Name</th>
+                                <th>Weight</th>
                                 <th>Country</th>
                                 <th>Status</th>
                                 <th>Pricing Status</th>
                                 <th>AE Status</th>
+                                <th>Assign AE</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -365,9 +365,8 @@
                         'url': 'billing-form/create',
                     },
             'columns': [
-                {data: "mount_code"},
-                {data: "weight"},
                 {data: "company_name"},
+                {data: "weight"},
                 {data: "destination"},
                 {
                     data: null,
@@ -417,6 +416,7 @@
                     }
 
                 },
+                {data:"username"},
                 {
                     data: null,
                     render: function(d){
@@ -430,7 +430,6 @@
                     }
 
                 }
-
             ]
         });
     }
