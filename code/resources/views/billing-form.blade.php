@@ -49,9 +49,9 @@
                     <div class="row">
                       <div class="col-md-6">
                           <div class="form-group">
-                              <label>Desination Of Package</label>
+                              <label>Country</label>
                               <input type="text" class="form-control" name="destination" id="destination"
-                                  placeholder="Enter Desination Of Package" readonly>
+                                  placeholder="Enter Country" readonly>
                           </div>
                       </div>
                       <div class="col-md-6">
