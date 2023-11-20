@@ -64,17 +64,22 @@
                     </div>
                   <div class="row">
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Service</label>
-                            <input type="text" class="form-control" name="service" id="service"
-                                placeholder="Enter Service" readonly>
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Service</label>
+                        <div class="col-sm-9">
+                        <select class="form-control" id="service" readonly>
+                            <option value="0">Select Service</option>
+                            <option value="1">Inbound / IP</option>
+                            <option value="2">Inbound / IPF</option>
+                            <option value="3">Outbound / IP</option>
+                            <option value="4">Outbound / IPF</option>
+                        </select>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>AWB</label>
                             <input type="text" class="form-control" name="awb" id="awb"
-                                placeholder="Enter Service" readonly>
+                                placeholder="Enter AWB" readonly>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -150,7 +155,7 @@
                                 <th>Pricing Status</th>
                                 <th>AE Status</th>
                                 <th>AE</th>
-                                <th>Date</th>
+                                <th>Time</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -363,7 +368,7 @@
             "recordsFiltered": 28,
             "columnDefs": [ {
                     "targets": 7,
-                    format: 'D MMM YYYY',
+                    "format": 'D MMM YYYY ',
             } ],
             'ajax': {
                         'method': 'get',
