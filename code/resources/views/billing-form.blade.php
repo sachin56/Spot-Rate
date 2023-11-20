@@ -330,7 +330,7 @@
                             success: function(data){
 
                             if(data){
-                                toastr.success('Credit Note Deleted');
+                                toastr.success('Rate Deleted');
                                 setTimeout(function(){
                                 location.reload();
                                 }, 2000);
