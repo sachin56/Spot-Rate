@@ -111,8 +111,6 @@
             </div>
           <div class="modal-footer bg-white">
             <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-outline-success submit" id="submit">Save changes</button>
-            <button type="button" class="btn btn-outline-danger submitreject" id="submitreject">Save changes</button>
           </div>
       </div>
     </div>
