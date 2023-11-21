@@ -20,8 +20,8 @@ class ReportExport implements FromCollection,WithHeadings
                     ->get();
                 for($i=0;$i<count($result);$i++){
                     if($result[$i]->ae_status == 0){
-                        $result[$i]->ae_status = 'Close won';
-                    }else if($result[$i]->ae_status == 1){
+                        $result[$i]->ae_status = 'Close Won';
+                    }elseif($result[$i]->ae_status == 1){
                         $result[$i]->ae_status = 'close Lost';
                     }else{
                         $result[$i]->ae_status = 'Pending';
@@ -30,16 +30,16 @@ class ReportExport implements FromCollection,WithHeadings
                 for($i=0;$i<count($result);$i++){
                     if($result[$i]->service == 1){
                         $result[$i]->service = 'Inbound / IP';
-                    }else if($result[$i]->service == 2){
+                    }elseif($result[$i]->service == 2){
                         $result[$i]->service = 'Inbound / IPF';
-                    }else if($result[$i]->service == 3){
+                    }elseif($result[$i]->service == 3){
                         $result[$i]->service = 'Outbound / IP';
                     }else{
                         $result[$i]->service = 'Outbound / IPF';
                     }
                 }
        
-                    return $result;
+        return $result;
     }
     public function headings(): array
     {
