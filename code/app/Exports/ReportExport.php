@@ -45,13 +45,13 @@ class ReportExport implements FromCollection,WithHeadings
     public function headings(): array
     {
         return [
-            'AE Status',
             'ICPC NO',
             'Mount Code',
             'Weight',
             'Country',
             'Service',
             'Request Rate',
+            'AE Status'
         ];
     }
 }
