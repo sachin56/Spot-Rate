@@ -16,8 +16,9 @@ class ReportExport implements FromCollection,WithHeadings
     {
         
         $result = DB::table('a_e_request_forms')
-                    ->select('a_e_request_forms.ae_status','a_e_request_forms.icpc_no','a_e_request_forms.mount_code','a_e_request_forms.weight','a_e_request_forms.destination','a_e_request_forms.service','a_e_request_forms.ae_rate','a_e_request_forms.ae_status')
+                    ->select('a_e_request_forms.icpc_no','a_e_request_forms.mount_code','a_e_request_forms.weight','a_e_request_forms.destination','a_e_request_forms.service','a_e_request_forms.ae_rate','a_e_request_forms.ae_status')
                     ->get();
+
                 for($i=0;$i<count($result);$i++){
                     if($result[$i]->ae_status == 0){
                         $result[$i]->ae_status = 'Close Won';
