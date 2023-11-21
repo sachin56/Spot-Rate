@@ -57,7 +57,7 @@
                     </div>
                     <a href="{{ route('password.request') }}" class="auth-link text-black" action="">Forgot password?</a>
                   </div>
-                  <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="{{route('register')}}" class="text-primary">Create</a>
+                  {{-- <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="{{route('register')}}" class="text-primary">Create</a> --}}
                   </div>
                 </form>
               </div>
