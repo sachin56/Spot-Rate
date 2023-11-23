@@ -163,7 +163,7 @@ td.t11,td.t6{padding-top:50px !important;padding-bottom:50px !important}div.t16{
 <!--[if !mso]><!--><td class="t63" style="width:480px;">
 <!--<![endif]-->
 <!--[if mso]><td class="t63" style="width:480px;"><![endif]-->
-<h1 class="t69" style="margin:0;Margin:0;font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Inter Tight';line-height:40px;font-weight:700;font-style:normal;font-size:35px;text-decoration:none;text-transform:none;direction:ltr;color:#022EAC;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">{{ $mailData['company_name'] }} have offered Rate.</h1></td>
+<h1 class="t69" style="margin:0;Margin:0;font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Inter Tight';line-height:40px;font-weight:700;font-style:normal;font-size:35px;text-decoration:none;text-transform:none;direction:ltr;color:#022EAC;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">{{ $mailData['company_name'] }}.</h1></td>
 </tr></table>
 </td></tr><tr><td><div class="t82" style="mso-line-height-rule:exactly;mso-line-height-alt:20px;line-height:20px;font-size:1px;display:block;">&nbsp;</div></td></tr><tr><td>
 
