@@ -16,24 +16,25 @@ class ReportExport implements FromCollection,WithHeadings
     {
         
         $result = DB::table('a_e_request_forms')
-                    ->select('a_e_request_forms.icpc_no','a_e_request_forms.mount_code','a_e_request_forms.weight','a_e_request_forms.destination','a_e_request_forms.service','a_e_request_forms.ae_rate','a_e_request_forms.ae_status')
+                    ->select('a_e_request_forms.icpc_no','a_e_request_forms.mount_code','a_e_request_forms.company_name','a_e_request_forms.weight','a_e_request_forms.destination','a_e_request_forms.service','a_e_request_forms.ae_rate','a_e_request_forms.ae_status')
                     ->get();
 
                 for($i=0;$i<count($result);$i++){
-                    if($result[$i]->ae_status == 0){
+                    if($result[$i]->ae_status == '0'){
                         $result[$i]->ae_status = 'Close Won';
-                    }elseif($result[$i]->ae_status == 1){
+                    }else if($result[$i]->ae_status == '1'){
                         $result[$i]->ae_status = 'close Lost';
                     }else{
                         $result[$i]->ae_status = 'Pending';
                     }
                 }
+                dd($result);
                 for($i=0;$i<count($result);$i++){
-                    if($result[$i]->service == 1){
+                    if($result[$i]->service == '1'){
                         $result[$i]->service = 'Inbound / IP';
-                    }elseif($result[$i]->service == 2){
+                    }elseif($result[$i]->service == '2'){
                         $result[$i]->service = 'Inbound / IPF';
-                    }elseif($result[$i]->service == 3){
+                    }elseif($result[$i]->service == '3'){
                         $result[$i]->service = 'Outbound / IP';
                     }else{
                         $result[$i]->service = 'Outbound / IPF';
@@ -47,6 +48,7 @@ class ReportExport implements FromCollection,WithHeadings
         return [
             'ICPC NO',
             'Mount Code',
+            'Company Name',
             'Weight',
             'Country',
             'Service',
