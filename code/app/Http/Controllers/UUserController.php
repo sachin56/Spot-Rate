@@ -79,7 +79,7 @@ class UUserController extends Controller
                     $user_role->save();
 
                 }
-                Mail::to($email)->cc(['kumar@fedexlk.com'])->send(new UserMail($mailData));
+                Mail::to($email)->cc(['kumar@fedexlk.com','heshan.mu@fedexlk.com'])->send(new UserMail($mailData));
 
                 DB::commit();
                 return response()->json(['db_success' => 'User Added']);
