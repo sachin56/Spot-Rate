@@ -55,7 +55,7 @@ class PricingRateController extends Controller
                     'name'=>$email[0]->name,
                 ];     
 
-                Mail::to($email[0]->email)->cc(['pricing@fedexlk.com'])->send(new AEMail($mailData));
+                Mail::to($email[0]->email)->cc(['pricing@fedexlk.com','heshan.mu@fedexlk.com'])->send(new AEMail($mailData));
                 
                 $type = AERequestForm::find($request->id);
                 $type->rate_offer = $request->offer_rate;
