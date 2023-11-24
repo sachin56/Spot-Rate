@@ -16,7 +16,8 @@ class ReportExport implements FromCollection,WithHeadings
     {
         
         $result = DB::table('a_e_request_forms')
-                    ->select('a_e_request_forms.icpc_no','a_e_request_forms.mount_code','a_e_request_forms.company_name','a_e_request_forms.weight','a_e_request_forms.destination','a_e_request_forms.service','a_e_request_forms.ae_rate','a_e_request_forms.ae_status')
+                    ->join('users','users.id','=','a_e_request_forms.assign_ae')
+                    ->select('a_e_request_forms.icpc_no','a_e_request_forms.mount_code','a_e_request_forms.company_name','a_e_request_forms.weight','a_e_request_forms.destination','a_e_request_forms.service','a_e_request_forms.ae_rate','a_e_request_forms.ae_status','users.name as username')
                     ->get();
 
                 for($i=0;$i<count($result);$i++){
@@ -53,7 +54,8 @@ class ReportExport implements FromCollection,WithHeadings
             'Country',
             'Service',
             'Request Rate',
-            'AE Status'
+            'AE Status',
+            'AE'
         ];
     }
 }
