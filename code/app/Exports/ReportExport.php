@@ -28,7 +28,7 @@ class ReportExport implements FromCollection,WithHeadings
                         $result[$i]->ae_status = 'Pending';
                     }
                 }
-                dd($result);
+                
                 for($i=0;$i<count($result);$i++){
                     if($result[$i]->service == '1'){
                         $result[$i]->service = 'Inbound / IP';
