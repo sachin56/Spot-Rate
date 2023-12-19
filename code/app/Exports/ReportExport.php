@@ -17,7 +17,8 @@ class ReportExport implements FromCollection,WithHeadings
         
         $result = DB::table('a_e_request_forms')
                     ->join('users','users.id','=','a_e_request_forms.assign_ae')
-                    ->select('a_e_request_forms.icpc_no','a_e_request_forms.mount_code','a_e_request_forms.company_name','a_e_request_forms.weight','a_e_request_forms.destination','a_e_request_forms.service','a_e_request_forms.ae_rate','a_e_request_forms.ae_status','users.name as username','a_e_request_forms.created_at')
+                    ->select('a_e_request_forms.icpc_no','a_e_request_forms.mount_code','a_e_request_forms.company_name','a_e_request_forms.weight','a_e_request_forms.destination',
+                    'a_e_request_forms.service','a_e_request_forms.ae_rate','a_e_request_forms.ae_status','users.name as username','a_e_request_forms.rate_offer','a_e_request_forms.created_at')
                     ->get();
 
                 for($i=0;$i<count($result);$i++){
@@ -41,6 +42,7 @@ class ReportExport implements FromCollection,WithHeadings
                         $result[$i]->service = 'Outbound / IPF';
                     }
                 }
+                dd($result);
         return $result;
     }
     public function headings(): array
@@ -55,6 +57,7 @@ class ReportExport implements FromCollection,WithHeadings
             'Request Rate',
             'AE Status',
             'AE',
+            'Pricing Offered Rate',
             'Created At'
         ];
     }
