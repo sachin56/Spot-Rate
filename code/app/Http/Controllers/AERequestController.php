@@ -20,13 +20,23 @@ class AERequestController extends Controller
 
     public function create(){
 
-        $result= DB::table('a_e_request_forms')
-                ->where('a_e_request_forms.staus','!=',2)
-                ->where('a_e_request_forms.assign_ae','=',Auth::user()->id)
-                ->select('a_e_request_forms.*')
-                ->get();
+        if(Auth::guard('admin')->check())
+        {
+            $result= DB::table('a_e_request_forms')
+                    ->where('a_e_request_forms.staus','!=',2)
+                    ->select('a_e_request_forms.*')
+                    ->get();
 
-        return DataTables($result)->make(true);
+            return DataTables($result)->make(true);
+        }else{
+            $result= DB::table('a_e_request_forms')
+                    ->where('a_e_request_forms.staus','!=',2)
+                    ->where('a_e_request_forms.assign_ae','=',Auth::user()->id)
+                    ->select('a_e_request_forms.*')
+                    ->get();
+
+            return DataTables($result)->make(true);
+        }
     }
 
     public function store(Request $request){
